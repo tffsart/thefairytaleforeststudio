@@ -11,26 +11,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Create scenes file
+      - name: Test Notion Connection
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
         run: |
-          mkdir -p data
+          curl -X POST "https://api.notion.com/v1/databases/3785e235d4c88006b7cfd4e824daaee7/query" \
+          -H "Authorization: Bearer $NOTION_TOKEN" \
+          -H "Notion-Version: 2022-06-28" \
+          -H "Content-Type: application/json" \
+          -o notion-response.json
 
-          cat > data/scenes.json << 'EOF'
-          [
-            {
-              "id": "001",
-              "title": "Tea in the Spring Garden",
-              "status": "Published",
-              "mediums": ["Music"]
-            }
-          ]
-          EOF
+          echo "Response saved."
+
+          cat notion-response.json
 
       - name: Commit
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-
           git add .
 
           git diff --staged --quiet || git commit -m "Sync scenes"
