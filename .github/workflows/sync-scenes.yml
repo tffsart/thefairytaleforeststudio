@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Test Notion Connection
+      - name: Get Scene Library from Notion
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
         run: |
@@ -21,8 +21,57 @@ jobs:
           -H "Content-Type: application/json" \
           -o notion-response.json
 
-          echo "=== NOTION RESPONSE ==="
-          cat notion-response.json
+      - name: Create scenes.json
+        run: |
+          python3 << 'EOF'
+          import json
+
+          with open("notion-response.json", "r", encoding="utf-8") as f:
+              notion = json.load(f)
+
+          scenes = []
+
+          for page in notion["results"]:
+
+              props = page["properties"]
+
+              title = ""
+
+              if props["Title"]["title"]:
+                  title = props["Title"]["title"][0]["plain_text"]
+
+              scene_id = ""
+
+              if props["Scene ID"]["rich_text"]:
+                  scene_id = props["Scene ID"]["rich_text"][0]["plain_text"]
+
+              status = ""
+
+              if props["Status"]["select"]:
+                  status = props["Status"]["select"]["name"]
+
+              mediums = []
+
+              for m in props["Mediums"]["multi_select"]:
+                  mediums.append(m["name"])
+
+              scenes.append({
+                  "id": scene_id,
+                  "title": title,
+                  "status": status,
+                  "mediums": mediums
+              })
+
+          with open("data/scenes.json", "w", encoding="utf-8") as f:
+              json.dump(
+                  scenes,
+                  f,
+                  ensure_ascii=False,
+                  indent=2
+              )
+
+          print("Generated data/scenes.json")
+          EOF
 
       - name: Commit
         run: |
