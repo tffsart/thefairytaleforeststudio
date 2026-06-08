@@ -1,546 +1,430 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+/* =====================================
+   RESET
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-background:#050505;
-color:#f4f1df;
-font-family:Georgia, serif;
-overflow-x:hidden;
+body {
+    background: #050505;
+    color: #f4f1df;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: Georgia, serif;
 }
 
-/* =========================
-HERO
-========================= */
+/* =====================================
+   HERO (GIỮ NGUYÊN TỪ A)
+===================================== */
 
-.hero{
+.hero {
+    min-height: 100vh;
 
-```
-min-height:100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-position:relative;
-
-padding:40px 20px;
-```
-
+    position: relative;
 }
 
-nav{
+/* =====================================
+   MENU A
+===================================== */
 
-```
-position:absolute;
+nav {
+    position: absolute;
+    top: 40px;
 
-top:40px;
-
-display:flex;
-
-gap:40px;
-
-flex-wrap:wrap;
-
-justify-content:center;
-```
-
+    display: flex;
+    gap: 40px;
 }
 
-nav a{
-
-```
-color:#d8d4bc;
-
-text-decoration:none;
-
-font-size:.95rem;
-
-opacity:.7;
-
-transition:.3s ease;
-```
-
+nav a {
+    color: #d8d4bc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    opacity: 0.7;
+    transition: 0.3s;
 }
 
-nav a:hover{
-
-```
-opacity:1;
-```
-
+nav a:hover {
+    opacity: 1;
 }
 
-.window{
+/* =====================================
+   WINDOW A
+===================================== */
 
-```
-width:360px;
+.window {
+    width: 360px;
+    height: 440px;
 
-height:440px;
+    position: relative;
+    overflow: hidden;
 
-position:relative;
-
-overflow:hidden;
-
-margin-bottom:50px;
-```
-
+    margin-bottom: 50px;
 }
 
-.sky{
+.sky {
+    position: absolute;
+    inset: 0;
 
-```
-position:absolute;
+    background: radial-gradient(
+        circle at 50% 25%,
+        rgba(180, 190, 150, 0.25),
+        rgba(35, 50, 70, 0.45) 45%,
+        rgba(5, 7, 12, 1) 100%
+    );
 
-inset:0;
-
-background:
-radial-gradient(
-    circle at 50% 25%,
-    rgba(180,190,150,.25),
-    rgba(35,50,70,.45) 45%,
-    rgba(5,7,12,1) 100%
-);
-
-animation:breatheSky 18s ease-in-out infinite;
-```
-
+    animation: breatheSky 18s ease-in-out infinite;
 }
 
-.glow{
+.glow {
+    position: absolute;
+    inset: 0;
 
-```
-position:absolute;
+    background: radial-gradient(
+        circle at center,
+        rgba(170, 190, 130, 0.25),
+        transparent 70%
+    );
 
-inset:0;
-
-background:
-radial-gradient(
-    circle at center,
-    rgba(170,190,130,.25),
-    transparent 70%
-);
-
-animation:breatheGlow 12s ease-in-out infinite;
-```
-
+    animation: breatheGlow 12s ease-in-out infinite;
 }
 
-.star{
-
-```
-position:absolute;
-
-width:4px;
-height:4px;
-
-border-radius:50%;
-
-background:#f4f1df;
-
-z-index:2;
-
-animation:twinkle 6s infinite;
-```
-
+.window:hover .glow {
+    filter: brightness(1.5);
 }
 
-.star1{top:50px;left:80px;}
-.star2{top:100px;left:240px;}
-.star3{top:160px;left:150px;}
-.star4{top:90px;left:300px;}
-.star5{top:250px;left:100px;}
-.star6{top:310px;left:260px;}
-.star7{top:220px;left:50px;}
-.star8{top:360px;left:180px;}
+/* =====================================
+   STARS A
+===================================== */
 
-.star2{animation-delay:1s;}
-.star3{animation-delay:2s;}
-.star4{animation-delay:3s;}
-.star5{animation-delay:4s;}
-.star6{animation-delay:5s;}
-.star7{animation-delay:1.5s;}
-.star8{animation-delay:2.5s;}
+.star {
+    position: absolute;
 
-.window-frame{
+    width: 4px;
+    height: 4px;
 
-```
-position:absolute;
+    border-radius: 50%;
 
-inset:0;
+    background: #f4f1df;
 
-z-index:3;
+    z-index: 2;
 
-border:4px solid #d9d7b8;
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-grid-template-rows:1fr 1fr;
-```
-
+    animation: twinkle 6s infinite;
 }
 
-.window-frame div{
+.star1 { top: 50px; left: 80px; }
+.star2 { top: 100px; left: 240px; }
+.star3 { top: 160px; left: 150px; }
+.star4 { top: 90px; left: 300px; }
+.star5 { top: 250px; left: 100px; }
+.star6 { top: 310px; left: 260px; }
+.star7 { top: 220px; left: 50px; }
+.star8 { top: 360px; left: 180px; }
 
-```
-border:2px solid #d9d7b8;
-```
+.star2 { animation-delay: 1s; }
+.star3 { animation-delay: 2s; }
+.star4 { animation-delay: 3s; }
+.star5 { animation-delay: 4s; }
+.star6 { animation-delay: 5s; }
+.star7 { animation-delay: 1.5s; }
+.star8 { animation-delay: 2.5s; }
 
+/* =====================================
+   WINDOW FRAME A
+===================================== */
+
+.window-frame {
+    position: absolute;
+    inset: 0;
+
+    z-index: 3;
+
+    border: 4px solid #d9d7b8;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 
-.window:hover .glow{
-
-```
-filter:brightness(1.5);
-```
-
+.window-frame div {
+    border: 2px solid #d9d7b8;
 }
 
-.hero h1{
+/* =====================================
+   TYPOGRAPHY A
+===================================== */
 
-```
-font-size:clamp(2.8rem,6vw,4.5rem);
-
-margin-bottom:20px;
-
-text-align:center;
-```
-
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
 }
 
-.hero p{
-
-```
-font-size:1.1rem;
-
-opacity:.75;
-
-text-align:center;
-```
-
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.75;
 }
 
-/* =========================
-SCROLL JOURNEY
-========================= */
+/* =====================================
+   FOREST SECTIONS (THÊM TỪ B)
+===================================== */
 
 .forest-transition,
 .forest-path,
-.forest-gate{
-
-```
-min-height:100vh;
-
-position:relative;
-```
-
+.forest-gate {
+    position: relative;
+    min-height: 100vh;
 }
 
-/* =========================
-FLOATING LIGHTS
-========================= */
+/* =====================================
+   FOREST TRANSITION
+===================================== */
 
-.forest-transition{
+.forest-transition {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-```
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-```
-
+    overflow: hidden;
 }
 
-.forest-darkness{
-
-```
-position:relative;
-
-width:100%;
-height:100%;
-```
-
+.forest-darkness {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
-.floating-light{
+/* =====================================
+   FLOATING LIGHTS
+===================================== */
 
-```
-position:absolute;
+.floating-light {
 
-width:12px;
-height:12px;
+    position: absolute;
 
-border-radius:50%;
+    width: 12px;
+    height: 12px;
 
-background:#f5d58b;
+    border-radius: 50%;
 
-box-shadow:
-    0 0 10px rgba(245,213,139,.8),
-    0 0 25px rgba(245,213,139,.6),
-    0 0 60px rgba(245,213,139,.4);
+    background: #f5d58b;
 
-animation:
-    twinkle 4s ease-in-out infinite,
-    floatLight 7s ease-in-out infinite;
-```
+    box-shadow:
+        0 0 10px rgba(245,213,139,.8),
+        0 0 25px rgba(245,213,139,.6),
+        0 0 60px rgba(245,213,139,.4);
 
+    animation:
+        twinkle 4s ease-in-out infinite,
+        floatLight 7s ease-in-out infinite;
 }
 
-.light-1{left:18%;top:55%;}
-.light-2{left:30%;top:65%;animation-delay:1s;}
-.light-3{left:40%;top:45%;animation-delay:2s;}
-.light-4{left:52%;top:70%;animation-delay:3s;}
-.light-5{left:62%;top:52%;animation-delay:4s;}
-.light-6{left:72%;top:62%;animation-delay:5s;}
-.light-7{left:82%;top:48%;animation-delay:2.5s;}
-.light-8{left:48%;top:35%;animation-delay:1.5s;}
+.light-1 { left:18%; top:55%; }
+.light-2 { left:30%; top:65%; animation-delay:1s; }
+.light-3 { left:40%; top:45%; animation-delay:2s; }
+.light-4 { left:52%; top:70%; animation-delay:3s; }
+.light-5 { left:62%; top:52%; animation-delay:4s; }
+.light-6 { left:72%; top:62%; animation-delay:5s; }
+.light-7 { left:82%; top:48%; animation-delay:2.5s; }
+.light-8 { left:48%; top:35%; animation-delay:1.5s; }
 
-/* =========================
-PATH
-========================= */
+/* =====================================
+   FOREST PATH
+===================================== */
 
-.forest-path{
-
-```
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-```
-
+.forest-path {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.path-lights{
+.path-lights {
 
-```
-width:min(900px,90vw);
+    width: min(900px, 90vw);
+    height: 500px;
 
-height:500px;
-
-position:relative;
-```
-
+    position: relative;
 }
 
-.path-lights span{
+.path-lights span {
 
-```
-position:absolute;
+    position: absolute;
 
-width:14px;
-height:14px;
+    width: 14px;
+    height: 14px;
 
-border-radius:50%;
+    border-radius: 50%;
 
-background:#f5d58b;
+    background: #f5d58b;
 
-box-shadow:
-    0 0 10px rgba(245,213,139,.8),
-    0 0 30px rgba(245,213,139,.6),
-    0 0 70px rgba(245,213,139,.35);
+    box-shadow:
+        0 0 10px rgba(245,213,139,.8),
+        0 0 30px rgba(245,213,139,.6),
+        0 0 70px rgba(245,213,139,.35);
 
-animation:twinkle 5s ease-in-out infinite;
-```
-
+    animation:
+        twinkle 5s ease-in-out infinite;
 }
 
-.path-lights span:nth-child(1){left:10%;top:75%;}
-.path-lights span:nth-child(2){left:20%;top:65%;}
-.path-lights span:nth-child(3){left:32%;top:58%;}
-.path-lights span:nth-child(4){left:46%;top:52%;}
-.path-lights span:nth-child(5){left:60%;top:44%;}
-.path-lights span:nth-child(6){left:72%;top:35%;}
-.path-lights span:nth-child(7){left:82%;top:22%;}
-.path-lights span:nth-child(8){left:90%;top:10%;}
+.path-lights span:nth-child(1){ left:10%; top:75%; }
+.path-lights span:nth-child(2){ left:20%; top:65%; animation-delay:.5s; }
+.path-lights span:nth-child(3){ left:32%; top:58%; animation-delay:1s; }
+.path-lights span:nth-child(4){ left:46%; top:52%; animation-delay:1.5s; }
+.path-lights span:nth-child(5){ left:60%; top:44%; animation-delay:2s; }
+.path-lights span:nth-child(6){ left:72%; top:35%; animation-delay:2.5s; }
+.path-lights span:nth-child(7){ left:82%; top:22%; animation-delay:3s; }
+.path-lights span:nth-child(8){ left:90%; top:10%; animation-delay:3.5s; }
 
-/* =========================
-ENTER FOREST
-========================= */
+/* =====================================
+   FOREST GATE
+===================================== */
 
-.forest-gate{
-
-```
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-```
-
+.forest-gate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.enter-forest-button{
+.enter-forest-button {
 
-```
-text-decoration:none;
+    text-decoration: none;
 
-color:#f4e2b0;
+    color: #f4e2b0;
 
-font-size:clamp(1.2rem,2vw,2rem);
+    font-size: clamp(1.2rem, 2vw, 2rem);
 
-padding:22px 42px;
+    letter-spacing: .05em;
 
-border:1px solid rgba(244,226,176,.3);
+    padding: 22px 42px;
 
-border-radius:999px;
+    border: 1px solid rgba(244,226,176,.3);
 
-transition:.4s ease;
-```
+    border-radius: 999px;
 
+    backdrop-filter: blur(10px);
+
+    transition: .4s ease;
 }
 
-.enter-forest-button:hover{
+.enter-forest-button:hover {
 
-```
-transform:translateY(-3px);
+    transform: translateY(-3px);
 
-box-shadow:
-    0 0 25px rgba(244,226,176,.2);
-```
-
+    box-shadow:
+        0 0 25px rgba(244,226,176,.2),
+        0 0 80px rgba(244,226,176,.1);
 }
 
-/* =========================
-SCENE LIBRARY
-========================= */
+/* =====================================
+   REVEAL SYSTEM
+===================================== */
 
-#scene-list{
+.reveal {
 
-```
-width:100%;
-max-width:800px;
+    opacity: 0;
 
-margin:40px auto;
-```
+    transform: translateY(60px);
 
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
 }
 
-.scene-card{
+.reveal.visible {
 
-```
-border:1px solid rgba(255,255,255,.15);
+    opacity: 1;
 
-padding:20px;
-
-margin-bottom:20px;
-
-border-radius:12px;
-```
-
+    transform: translateY(0);
 }
 
-.scene-card h2{
+/* =====================================
+   ANIMATIONS
+===================================== */
 
-```
-margin-bottom:10px;
-```
+@keyframes twinkle {
 
+    0%,100%{
+        opacity:.15;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(2);
+    }
 }
 
-/* =========================
-REVEAL
-========================= */
+@keyframes breatheSky {
 
-.reveal{
+    0%,100%{
+        filter:brightness(.85);
+    }
 
-```
-opacity:0;
-
-transform:translateY(60px);
-
-transition:
-    opacity 1.2s ease,
-    transform 1.2s ease;
-```
-
+    50%{
+        filter:brightness(1.15);
+    }
 }
 
-.reveal.visible{
+@keyframes breatheGlow {
 
-```
-opacity:1;
+    0%,100%{
+        opacity:.3;
+    }
 
-transform:translateY(0);
-```
-
+    50%{
+        opacity:.8;
+    }
 }
 
-/* =========================
-ANIMATION
-========================= */
+@keyframes floatLight {
 
-@keyframes twinkle{
+    0%{
+        transform:
+            translateY(0)
+            scale(.9);
+    }
 
-```
-0%,100%{
-    opacity:.15;
-    transform:scale(.8);
+    50%{
+        transform:
+            translateY(-20px)
+            scale(1.2);
+    }
+
+    100%{
+        transform:
+            translateY(0)
+            scale(.9);
+    }
 }
 
-50%{
-    opacity:1;
-    transform:scale(1.8);
-}
-```
+/* =====================================
+   SCENE LIBRARY
+===================================== */
 
-}
-
-@keyframes floatLight{
-
-```
-0%,100%{
-    transform:
-    translateY(0)
-    scale(.9);
+#scene-list {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
 }
 
-50%{
-    transform:
-    translateY(-20px)
-    scale(1.2);
-}
-```
-
-}
-
-@keyframes breatheSky{
-
-```
-0%,100%{
-    filter:brightness(.85);
+.scene-card {
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
 }
 
-50%{
-    filter:brightness(1.15);
-}
-```
-
-}
-
-@keyframes breatheGlow{
-
-```
-0%,100%{
-    opacity:.3;
-}
-
-50%{
-    opacity:.8;
-}
-```
-
+.scene-card h2 {
+    margin-bottom: 10px;
 }
