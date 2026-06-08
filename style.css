@@ -722,3 +722,251 @@ body{
 
     border-radius:20px;
 }
+/* =====================================
+HERO PATCH
+DÁN CUỐI FILE CSS
+===================================== */
+
+.hero{
+
+```
+min-height:100vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+position:relative;
+
+padding:40px 20px;
+```
+
+}
+
+/* MENU CŨ */
+
+.hero nav{
+
+```
+position:absolute;
+
+top:40px;
+
+display:flex;
+
+gap:40px;
+
+z-index:20;
+```
+
+}
+
+.hero nav a{
+
+```
+color:#d8d4bc;
+
+text-decoration:none;
+
+font-size:.95rem;
+
+opacity:.7;
+
+transition:.3s ease;
+```
+
+}
+
+.hero nav a:hover{
+
+```
+opacity:1;
+```
+
+}
+
+/* WINDOW CŨ */
+
+.window{
+
+```
+width:360px;
+
+height:440px;
+
+position:relative;
+
+overflow:hidden;
+
+margin-bottom:50px;
+```
+
+}
+
+.sky{
+
+```
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+    circle at 50% 25%,
+    rgba(180,190,150,.25),
+    rgba(35,50,70,.45) 45%,
+    rgba(5,7,12,1) 100%
+);
+
+animation:breatheSky 18s ease-in-out infinite;
+```
+
+}
+
+.glow{
+
+```
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+    circle at center,
+    rgba(170,190,130,.25),
+    transparent 70%
+);
+
+animation:breatheGlow 12s ease-in-out infinite;
+```
+
+}
+
+/* STARS */
+
+.star{
+
+```
+position:absolute;
+
+width:4px;
+
+height:4px;
+
+border-radius:50%;
+
+background:#f4f1df;
+
+z-index:2;
+
+animation:twinkle 6s infinite;
+```
+
+}
+
+.star1{top:50px;left:80px;}
+.star2{top:100px;left:240px;}
+.star3{top:160px;left:150px;}
+.star4{top:90px;left:300px;}
+.star5{top:250px;left:100px;}
+.star6{top:310px;left:260px;}
+.star7{top:220px;left:50px;}
+.star8{top:360px;left:180px;}
+
+.star2{animation-delay:1s;}
+.star3{animation-delay:2s;}
+.star4{animation-delay:3s;}
+.star5{animation-delay:4s;}
+.star6{animation-delay:5s;}
+.star7{animation-delay:1.5s;}
+.star8{animation-delay:2.5s;}
+
+/* WINDOW FRAME */
+
+.window-frame{
+
+```
+position:absolute;
+
+inset:0;
+
+z-index:5;
+
+border:4px solid #d9d7b8;
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+grid-template-rows:1fr 1fr;
+```
+
+}
+
+.window-frame div{
+
+```
+border:2px solid #d9d7b8;
+```
+
+}
+
+/* TITLE */
+
+.hero h1{
+
+```
+font-size:clamp(3rem,7vw,5rem);
+
+margin-bottom:20px;
+
+text-align:center;
+```
+
+}
+
+.hero p{
+
+```
+font-size:1.1rem;
+
+opacity:.75;
+
+text-align:center;
+```
+
+}
+
+/* HERO ANIMATION */
+
+@keyframes breatheSky{
+
+```
+0%,100%{
+    filter:brightness(.85);
+}
+
+50%{
+    filter:brightness(1.15);
+}
+```
+
+}
+
+@keyframes breatheGlow{
+
+```
+0%,100%{
+    opacity:.3;
+}
+
+50%{
+    opacity:.8;
+}
+```
+
+}
