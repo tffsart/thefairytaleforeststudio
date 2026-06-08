@@ -428,3 +428,8 @@ nav a:hover {
 .scene-card h2 {
     margin-bottom: 10px;
 }
+.window{
+    width:360px !important;
+    height:440px !important;
+    background:red !important;
+}
