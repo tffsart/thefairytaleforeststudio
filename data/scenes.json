@@ -1,5 +1,13 @@
 [
   {
+    "id": "002",
+    "title": "A Summer Night",
+    "status": "Published",
+    "mediums": [
+      "Writing"
+    ]
+  },
+  {
     "id": "001",
     "title": "Tea in the Spring Garden",
     "status": "Published",
