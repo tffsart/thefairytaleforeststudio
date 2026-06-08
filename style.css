@@ -1,524 +1,724 @@
-/* =========================================
+/* =====================================
    RESET
-========================================= */
+===================================== */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-:root {
-
-    --bg-dark: #050608;
-
-    --forest-dark: #0d1512;
-    --forest-mid: #18231d;
-
-    --text-main: #f4f1df;
-    --text-soft: rgba(244, 241, 223, 0.75);
-
-    --gold-soft: #d9c387;
-    --gold-bright: #f0dd9d;
-
-    --wood: #3a2c1d;
-
-    --max-width: 1200px;
+html{
+    scroll-behavior:smooth;
 }
 
-html {
-    scroll-behavior: smooth;
+body{
+
+    background:#050505;
+
+    color:#f4f1df;
+
+    font-family:Georgia, serif;
+
+    overflow-x:hidden;
+
+    line-height:1.6;
 }
 
-body {
-
-    background:
-        radial-gradient(
-            circle at top,
-            rgba(90, 70, 30, 0.12),
-            transparent 40%
-        ),
-        var(--bg-dark);
-
-    color: var(--text-main);
-
-    font-family: Georgia, serif;
-
-    min-height: 100vh;
-
-    overflow-x: hidden;
-}
-
-/* =========================================
+/* =====================================
    NAVIGATION
-========================================= */
+===================================== */
 
-header {
+.site-header{
 
-    width: 100%;
+    position:fixed;
 
-    position: fixed;
-    top: 0;
-    left: 0;
+    top:0;
 
-    z-index: 100;
+    left:0;
+
+    width:100%;
+
+    z-index:1000;
+
+    display:flex;
+
+    justify-content:center;
+
+    padding:32px 20px;
+
+    pointer-events:none;
 }
 
-.main-nav {
+.main-nav{
 
-    max-width: var(--max-width);
+    display:flex;
 
-    margin: 0 auto;
+    gap:42px;
 
-    padding: 32px 24px;
-
-    display: flex;
-    justify-content: center;
-    gap: 36px;
-
-    backdrop-filter: blur(6px);
+    pointer-events:auto;
 }
 
-.main-nav a {
+.main-nav a{
 
-    color: #d8d4bc;
+    text-decoration:none;
 
-    text-decoration: none;
+    color:#d8d4bc;
 
-    opacity: 0.75;
+    opacity:.75;
 
-    transition:
-        opacity 0.3s ease,
-        color 0.3s ease;
+    transition:.35s ease;
 }
 
-.main-nav a:hover {
+.main-nav a:hover{
 
-    opacity: 1;
+    opacity:1;
 
-    color: var(--gold-soft);
+    color:#f4f1df;
 }
 
-/* =========================================
-   MAIN
-========================================= */
-
-main {
-
-    width: 100%;
-}
-
-/* =========================================
+/* =====================================
    HERO
-========================================= */
+===================================== */
 
-.hero {
+.hero{
 
-    min-height: 100vh;
+    min-height:100vh;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display:flex;
 
-    padding:
-        140px
-        24px
-        80px;
+    flex-direction:column;
 
-    text-align: center;
+    justify-content:center;
+
+    align-items:center;
+
+    padding:120px 20px 120px;
+
+    position:relative;
 }
 
-/* =========================================
+.hero-content{
+
+    text-align:center;
+
+    margin-top:60px;
+}
+
+.hero-content h1{
+
+    font-size:clamp(3rem,7vw,5.5rem);
+
+    margin-bottom:18px;
+
+    font-weight:600;
+}
+
+.hero-content p{
+
+    font-size:1.1rem;
+
+    opacity:.75;
+}
+
+/* =====================================
    WINDOW
-========================================= */
+===================================== */
 
-.window-wrapper {
+.window-wrapper{
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display:flex;
 
-    margin-bottom: 48px;
+    justify-content:center;
+
+    align-items:center;
 }
 
-.window {
+.window{
 
-    width: 360px;
-    height: 440px;
+    width:min(420px,80vw);
 
-    position: relative;
+    aspect-ratio:4/5;
 
-    overflow: hidden;
+    position:relative;
+
+    overflow:hidden;
 }
 
-/* sky */
+.window-image{
 
-.sky {
+    position:absolute;
 
-    position: absolute;
-    inset: 0;
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+}
+
+/* =====================================
+   WINDOW FRAME
+===================================== */
+
+.window-frame{
+
+    position:absolute;
+
+    inset:0;
+
+    border:4px solid #d9d7b8;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    grid-template-rows:1fr 1fr;
+
+    z-index:5;
+}
+
+.window-frame span{
+
+    border:2px solid #d9d7b8;
+}
+
+/* =====================================
+   FOREST LIGHTS UNDER WINDOW
+===================================== */
+
+.window::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
 
     background:
-        radial-gradient(
-            circle at 50% 25%,
-            rgba(185, 190, 160, 0.22),
-            rgba(40, 55, 72, 0.40) 45%,
-            rgba(5, 7, 12, 1) 100%
-        );
 
-    animation: breatheSky 18s ease-in-out infinite;
+    radial-gradient(
+        circle at 25% 75%,
+        rgba(255,220,140,.25),
+        transparent 15%
+    ),
+
+    radial-gradient(
+        circle at 70% 65%,
+        rgba(255,220,140,.18),
+        transparent 15%
+    ),
+
+    radial-gradient(
+        circle at 55% 40%,
+        rgba(255,220,140,.15),
+        transparent 12%
+    );
+
+    z-index:2;
 }
 
-/* distant forest */
+/* =====================================
+   SECTION BASE
+===================================== */
 
-.forest-horizon {
+.forest-transition,
+.forest-path,
+.forest-lantern,
+.forest-sign,
+.forest-gate{
 
-    position: absolute;
+    position:relative;
 
-    left: 0;
-    right: 0;
-    bottom: 0;
+    min-height:100vh;
+}
+/* =====================================
+   SCROLL JOURNEY
+===================================== */
 
-    height: 120px;
+.forest-transition{
 
-    background:
-        radial-gradient(circle at 10% 100%, #111 0, #111 20%, transparent 21%),
-        radial-gradient(circle at 30% 100%, #131813 0, #131813 24%, transparent 25%),
-        radial-gradient(circle at 55% 100%, #101510 0, #101510 28%, transparent 29%),
-        radial-gradient(circle at 80% 100%, #141b15 0, #141b15 26%, transparent 27%);
+    display:flex;
 
-    opacity: 0.7;
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
 }
 
-/* glow */
+/* =====================================
+   FLOATING LIGHTS
+===================================== */
 
-.glow {
+.forest-darkness{
 
-    position: absolute;
-    inset: 0;
+    position:relative;
 
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(180, 190, 130, 0.22),
-            transparent 70%
-        );
+    width:100%;
 
-    animation: breatheGlow 12s ease-in-out infinite;
+    height:100%;
 }
 
-/* stars */
+.floating-light{
 
-.star {
+    position:absolute;
 
-    position: absolute;
+    width:12px;
 
-    width: 4px;
-    height: 4px;
+    height:12px;
 
-    border-radius: 50%;
+    border-radius:50%;
 
-    background: #f4f1df;
-
-    animation: twinkle 6s infinite;
-}
-
-.star1 { top: 50px; left: 80px; }
-.star2 { top: 100px; left: 240px; }
-.star3 { top: 160px; left: 150px; }
-.star4 { top: 90px; left: 300px; }
-.star5 { top: 250px; left: 100px; }
-.star6 { top: 310px; left: 260px; }
-.star7 { top: 220px; left: 50px; }
-.star8 { top: 360px; left: 180px; }
-
-/* forest lights */
-
-.forest-light {
-
-    position: absolute;
-
-    width: 8px;
-    height: 8px;
-
-    border-radius: 50%;
-
-    background: var(--gold-soft);
-
-    filter: blur(1px);
-
-    animation: forestGlow 5s ease-in-out infinite;
-}
-
-.light1 { bottom: 60px; left: 90px; }
-.light2 { bottom: 80px; left: 180px; }
-.light3 { bottom: 50px; left: 260px; }
-.light4 { bottom: 95px; left: 300px; }
-
-/* frame */
-
-.window-frame {
-
-    position: absolute;
-    inset: 0;
-
-    border: 4px solid #d9d7b8;
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-
-    z-index: 10;
-}
-
-.window-frame div {
-
-    border: 2px solid #d9d7b8;
-}
-
-/* sill */
-
-.window-sill {
-
-    width: 420px;
-    height: 18px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #5d4830,
-            #3a2c1d
-        );
-
-    border-radius: 2px;
+    background:#f5d58b;
 
     box-shadow:
-        0 6px 20px rgba(0,0,0,0.4);
+        0 0 10px rgba(245,213,139,.8),
+        0 0 25px rgba(245,213,139,.6),
+        0 0 60px rgba(245,213,139,.4);
+
+    animation:floatLight 6s ease-in-out infinite;
 }
 
-/* =========================================
-   HERO TEXT
-========================================= */
-
-.hero-content h1 {
-
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-
-    margin-bottom: 20px;
-
-    line-height: 1.1;
+.light-1{
+    left:18%;
+    top:55%;
 }
 
-.tagline {
-
-    max-width: 600px;
-
-    margin: 0 auto;
-
-    color: var(--text-soft);
-
-    font-size: 1.1rem;
-
-    line-height: 1.8;
+.light-2{
+    left:30%;
+    top:65%;
+    animation-delay:1s;
 }
 
-/* =========================================
+.light-3{
+    left:40%;
+    top:45%;
+    animation-delay:2s;
+}
+
+.light-4{
+    left:52%;
+    top:70%;
+    animation-delay:3s;
+}
+
+.light-5{
+    left:62%;
+    top:52%;
+    animation-delay:4s;
+}
+
+.light-6{
+    left:72%;
+    top:62%;
+    animation-delay:5s;
+}
+
+.light-7{
+    left:82%;
+    top:48%;
+    animation-delay:2.5s;
+}
+
+.light-8{
+    left:48%;
+    top:35%;
+    animation-delay:1.5s;
+}
+
+/* =====================================
    FOREST PATH
-========================================= */
+===================================== */
 
-.forest-path {
+.forest-path{
 
-    min-height: 70vh;
+    display:flex;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content:center;
 
-    padding: 120px 24px;
-
-    text-align: center;
+    align-items:center;
 }
 
-.path-lights {
+.path-lights{
 
-    display: flex;
-    gap: 50px;
+    width:min(900px,90vw);
 
-    margin-bottom: 50px;
+    height:500px;
+
+    position:relative;
 }
 
-.path-lights span {
+.path-lights span{
 
-    width: 10px;
-    height: 10px;
+    position:absolute;
 
-    border-radius: 50%;
+    width:14px;
 
-    background: var(--gold-soft);
+    height:14px;
+
+    border-radius:50%;
+
+    background:#f5d58b;
 
     box-shadow:
-        0 0 20px rgba(217,195,135,0.7);
-
-    animation: twinkle 5s infinite;
+        0 0 10px rgba(245,213,139,.8),
+        0 0 30px rgba(245,213,139,.6),
+        0 0 70px rgba(245,213,139,.35);
 }
 
-.forest-whisper {
+.path-lights span:nth-child(1){
 
-    max-width: 560px;
-
-    color: var(--text-soft);
-
-    line-height: 1.9;
-
-    font-size: 1.1rem;
+    left:10%;
+    top:75%;
 }
 
-/* =========================================
-   INVITATION
-========================================= */
+.path-lights span:nth-child(2){
 
-.forest-invitation {
-
-    min-height: 40vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 80px 24px 140px;
+    left:20%;
+    top:65%;
 }
 
-.forest-link {
+.path-lights span:nth-child(3){
 
-    position: relative;
-
-    color: var(--gold-soft);
-
-    text-decoration: none;
-
-    font-size: 1.25rem;
-
-    letter-spacing: 0.03em;
-
-    transition: all 0.3s ease;
+    left:32%;
+    top:58%;
 }
 
-.forest-link::before {
+.path-lights span:nth-child(4){
 
-    content: "";
+    left:46%;
+    top:52%;
+}
 
-    position: absolute;
+.path-lights span:nth-child(5){
 
-    left: -20px;
-    top: 50%;
+    left:60%;
+    top:44%;
+}
 
-    width: 8px;
-    height: 8px;
+.path-lights span:nth-child(6){
 
-    border-radius: 50%;
+    left:72%;
+    top:35%;
+}
 
-    background: var(--gold-bright);
+.path-lights span:nth-child(7){
 
-    transform: translateY(-50%);
+    left:82%;
+    top:22%;
+}
+
+.path-lights span:nth-child(8){
+
+    left:90%;
+    top:10%;
+}
+
+/* =====================================
+   LANTERN
+===================================== */
+
+.forest-lantern{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+.lantern-container{
+
+    width:min(320px,60vw);
+}
+
+.lantern-image{
+
+    width:100%;
+
+    display:block;
+
+    filter:
+        drop-shadow(0 0 30px rgba(255,210,120,.5))
+        drop-shadow(0 0 80px rgba(255,210,120,.25));
+}
+
+/* =====================================
+   WOOD SIGN
+===================================== */
+
+.forest-sign{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+.sign-wrapper{
+
+    width:min(700px,90vw);
+}
+
+.sign-image{
+
+    width:100%;
+
+    display:block;
+}
+
+/* =====================================
+   ENTER FOREST
+===================================== */
+
+.forest-gate{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+.enter-forest-button{
+
+    text-decoration:none;
+
+    color:#f4e2b0;
+
+    font-size:clamp(
+        1.2rem,
+        2vw,
+        2rem
+    );
+
+    letter-spacing:.05em;
+
+    padding:22px 42px;
+
+    border:1px solid rgba(244,226,176,.3);
+
+    border-radius:999px;
+
+    backdrop-filter:blur(10px);
+
+    transition:.4s ease;
+}
+
+.enter-forest-button:hover{
+
+    transform:translateY(-3px);
 
     box-shadow:
-        0 0 20px rgba(240,221,157,0.8);
-
-    animation: twinkle 4s infinite;
+        0 0 25px rgba(244,226,176,.2),
+        0 0 80px rgba(244,226,176,.1);
 }
-
-.forest-link:hover {
-
-    color: #fff7d0;
-
-    text-shadow:
-        0 0 20px rgba(240,221,157,0.8);
-}
-
-/* =========================================
+/* =====================================
    ANIMATIONS
-========================================= */
+===================================== */
 
 @keyframes twinkle {
 
-    0%,100% {
-        opacity: 0.25;
-        transform: scale(1);
+    0%{
+        opacity:.15;
+        transform:scale(.8);
     }
 
-    50% {
-        opacity: 1;
-        transform: scale(1.8);
+    50%{
+        opacity:1;
+        transform:scale(1.8);
+    }
+
+    100%{
+        opacity:.15;
+        transform:scale(.8);
     }
 }
 
-@keyframes breatheSky {
+@keyframes floatLight {
 
-    0%,100% {
-        filter: brightness(0.9);
+    0%{
+        transform:
+            translateY(0px)
+            scale(.9);
     }
 
-    50% {
-        filter: brightness(1.12);
+    50%{
+        transform:
+            translateY(-20px)
+            scale(1.2);
+    }
+
+    100%{
+        transform:
+            translateY(0px)
+            scale(.9);
     }
 }
 
 @keyframes breatheGlow {
 
-    0%,100% {
-        opacity: 0.25;
+    0%{
+        filter:brightness(.9);
     }
 
-    50% {
-        opacity: 0.75;
-    }
-}
-
-@keyframes forestGlow {
-
-    0%,100% {
-        opacity: 0.3;
+    50%{
+        filter:brightness(1.15);
     }
 
-    50% {
-        opacity: 1;
+    100%{
+        filter:brightness(.9);
     }
 }
 
-/* =========================================
-   MOBILE
-========================================= */
+@keyframes lanternGlow {
 
-@media (max-width: 768px) {
-
-    .main-nav {
-
-        gap: 18px;
-
-        flex-wrap: wrap;
+    0%{
+        filter:
+            drop-shadow(0 0 20px rgba(255,210,120,.25))
+            drop-shadow(0 0 50px rgba(255,210,120,.15));
     }
 
-    .window {
-
-        width: 280px;
-        height: 340px;
+    50%{
+        filter:
+            drop-shadow(0 0 40px rgba(255,210,120,.7))
+            drop-shadow(0 0 120px rgba(255,210,120,.35));
     }
 
-    .window-sill {
-
-        width: 320px;
+    100%{
+        filter:
+            drop-shadow(0 0 20px rgba(255,210,120,.25))
+            drop-shadow(0 0 50px rgba(255,210,120,.15));
     }
+}
 
-    .forest-whisper {
+/* =====================================
+   WINDOW LIFE
+===================================== */
 
-        font-size: 1rem;
-    }
+.window-image{
 
-    .forest-link {
+    animation:
+        breatheGlow 12s ease-in-out infinite;
+}
 
-        font-size: 1.1rem;
-    }
+/* =====================================
+   LIGHTS
+===================================== */
+
+.floating-light{
+
+    animation:
+        twinkle 4s ease-in-out infinite,
+        floatLight 7s ease-in-out infinite;
+}
+
+.path-lights span{
+
+    animation:
+        twinkle 5s ease-in-out infinite;
+}
+
+.path-lights span:nth-child(2){
+    animation-delay:.5s;
+}
+
+.path-lights span:nth-child(3){
+    animation-delay:1s;
+}
+
+.path-lights span:nth-child(4){
+    animation-delay:1.5s;
+}
+
+.path-lights span:nth-child(5){
+    animation-delay:2s;
+}
+
+.path-lights span:nth-child(6){
+    animation-delay:2.5s;
+}
+
+.path-lights span:nth-child(7){
+    animation-delay:3s;
+}
+
+.path-lights span:nth-child(8){
+    animation-delay:3.5s;
+}
+
+/* =====================================
+   LANTERN
+===================================== */
+
+.lantern-image{
+
+    animation:
+        lanternGlow 6s ease-in-out infinite;
+}
+
+/* =====================================
+   SCROLL REVEAL
+===================================== */
+
+.reveal{
+
+    opacity:0;
+
+    transform:
+        translateY(60px);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+}
+
+.reveal.visible{
+
+    opacity:1;
+
+    transform:
+        translateY(0);
+}
+.lantern-placeholder{
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,220,130,.9),
+            rgba(255,220,130,.15),
+            transparent
+        );
+
+    animation:
+        lanternGlow 6s ease-in-out infinite;
+}
+
+.sign-placeholder{
+
+    width:min(500px,80vw);
+
+    padding:40px;
+
+    text-align:center;
+
+    font-size:clamp(
+        1.5rem,
+        4vw,
+        3rem
+    );
+
+    color:#f4e2b0;
+
+    border:1px solid rgba(244,226,176,.2);
+
+    border-radius:20px;
 }

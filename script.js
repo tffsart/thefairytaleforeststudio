@@ -51,3 +51,47 @@ async function loadScenes() {
 }
 
 loadScenes();
+
+
+
+/* =====================================
+   HOMEPAGE REVEAL SYSTEM
+===================================== */
+
+const revealElements = document.querySelectorAll(
+    ".forest-transition, .forest-path, .forest-lantern, .forest-sign, .forest-gate"
+);
+
+if (revealElements.length > 0) {
+
+    revealElements.forEach(section => {
+        section.classList.add("reveal");
+    });
+
+    const observer = new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.15
+        }
+
+    );
+
+    revealElements.forEach(section => {
+        observer.observe(section);
+    });
+
+}
