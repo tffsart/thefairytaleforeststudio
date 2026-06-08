@@ -295,35 +295,34 @@ nav a:hover {
     align-items: center;
 }
 
-.enter-forest-button {
+.forest-invitation {
+
+    position: relative;
 
     text-decoration: none;
 
     color: #f4e2b0;
 
-    font-size: clamp(1.2rem, 2vw, 2rem);
+    font-size: 1rem;
 
     letter-spacing: .05em;
 
-    padding: 22px 42px;
+    opacity: .9;
 
-    border: 1px solid rgba(244,226,176,.3);
+    transition: .5s ease;
 
-    border-radius: 999px;
-
-    backdrop-filter: blur(10px);
-
-    transition: .4s ease;
+    text-align: center;
 }
 
-.enter-forest-button:hover {
+.forest-invitation:hover {
 
-    transform: translateY(-3px);
+    color: #fff4d0;
 
-    box-shadow:
-        0 0 25px rgba(244,226,176,.2),
-        0 0 80px rgba(244,226,176,.1);
+    text-shadow:
+        0 0 8px rgba(255,230,160,.7),
+        0 0 20px rgba(255,230,160,.4);
 }
+
 
 /* =====================================
    REVEAL SYSTEM
@@ -427,4 +426,137 @@ nav a:hover {
 
 .scene-card h2 {
     margin-bottom: 10px;
+}
+/* =====================================
+   FAIRYTALE INVITATION
+===================================== */
+
+.forest-gate {
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+}
+
+.forest-invitation {
+
+    position:relative;
+
+    text-decoration:none;
+
+    color:#f4e2b0;
+
+    font-size:clamp(
+        1.4rem,
+        2.2vw,
+        2.2rem
+    );
+
+    letter-spacing:.03em;
+
+    transition:.5s ease;
+
+    text-align:center;
+}
+
+.forest-invitation:hover {
+
+    color:#fff2c7;
+
+    text-shadow:
+        0 0 10px rgba(255,230,160,.8),
+        0 0 25px rgba(255,230,160,.5),
+        0 0 60px rgba(255,230,160,.3);
+}
+
+/* =====================================
+   SPARKLES
+===================================== */
+
+.sparkle {
+
+    position:absolute;
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#f5d58b;
+
+    box-shadow:
+        0 0 8px rgba(245,213,139,.9),
+        0 0 18px rgba(245,213,139,.7),
+        0 0 35px rgba(245,213,139,.4);
+
+    animation:
+        sparkleFloat 5s ease-in-out infinite,
+        sparkleBlink 3s ease-in-out infinite;
+}
+
+.sparkle-1 {
+    left:-40px;
+    top:10px;
+}
+
+.sparkle-2 {
+    left:20%;
+    top:-20px;
+    animation-delay:1s;
+}
+
+.sparkle-3 {
+    right:15%;
+    top:-15px;
+    animation-delay:2s;
+}
+
+.sparkle-4 {
+    right:-30px;
+    top:5px;
+    animation-delay:1.5s;
+}
+
+.sparkle-5 {
+    left:50%;
+    bottom:-25px;
+    animation-delay:2.5s;
+}
+
+/* =====================================
+   SPARKLE ANIMATION
+===================================== */
+
+@keyframes sparkleFloat {
+
+    0%{
+        transform:
+            translateY(0)
+            scale(.8);
+    }
+
+    50%{
+        transform:
+            translateY(-15px)
+            scale(1.4);
+    }
+
+    100%{
+        transform:
+            translateY(0)
+            scale(.8);
+    }
+}
+
+@keyframes sparkleBlink {
+
+    0%,100%{
+        opacity:.2;
+    }
+
+    50%{
+        opacity:1;
+    }
 }
