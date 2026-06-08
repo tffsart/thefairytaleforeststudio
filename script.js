@@ -12,6 +12,10 @@ async function loadScenes() {
 
         const scenes = await response.json();
 
+        scenes.sort((a, b) => {
+            return Number(a.id) - Number(b.id);
+        });
+
         container.innerHTML = "";
 
         scenes.forEach(scene => {
