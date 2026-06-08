@@ -196,6 +196,67 @@ nav a:hover {
     align-items: center;
 
     overflow: hidden;
+
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at 50% 80%,
+            rgba(245,213,139,.05),
+            transparent 45%
+        ),
+        linear-gradient(
+            to bottom,
+            #050505,
+            #070707,
+            #090909
+        );
+}
+.forest-transition::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255,255,255,.025),
+            transparent 70%
+        );
+
+    filter: blur(60px);
+
+    pointer-events: none;
+}
+.forest-transition::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 40%;
+
+    background:
+        repeating-linear-gradient(
+            to right,
+            rgba(20,20,20,.9) 0px,
+            rgba(20,20,20,.9) 40px,
+            rgba(10,10,10,.95) 40px,
+            rgba(10,10,10,.95) 90px
+        );
+
+    opacity: .25;
+
+    filter: blur(12px);
+
+    pointer-events: none;
 }
 
 .forest-darkness {
@@ -246,6 +307,39 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    position: relative;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(245,213,139,.06),
+            transparent 55%
+        );
+}
+.forest-path::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 70%;
+    height: 100%;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(255,220,140,.03),
+            transparent
+        );
+
+    filter: blur(40px);
+
+    pointer-events: none;
 }
 
 .path-lights {
