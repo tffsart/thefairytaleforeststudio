@@ -274,6 +274,7 @@ nav a:hover {
         );
 
 }
+
 .forest-darkness::before {
 
     content: "";
@@ -294,6 +295,65 @@ nav a:hover {
     pointer-events: none;
 }
 
+/* =====================================
+   DISTANT LANTERN
+===================================== */
+
+.forest-lantern {
+
+    position: absolute;
+
+    left: 50%;
+    top: 28%;
+
+    transform: translateX(-50%);
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: #f5d58b;
+
+    z-index: 2;
+
+    box-shadow:
+        0 0 10px rgba(245,213,139,.9),
+        0 0 30px rgba(245,213,139,.7),
+        0 0 80px rgba(245,213,139,.3);
+
+    animation:
+        lanternGlow 6s ease-in-out infinite;
+}
+
+.forest-lantern::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 120px;
+    height: 120px;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(245,213,139,.12),
+            transparent 70%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+}
 /* =====================================
    FLOATING LIGHTS
 ===================================== */
@@ -718,3 +778,15 @@ nav a:hover {
    FOREST THOUGHTS
 ===================================== */
 
+@keyframes lanternGlow {
+
+    0%,100% {
+
+        opacity: .7;
+    }
+
+    50% {
+
+        opacity: 1;
+    }
+}
