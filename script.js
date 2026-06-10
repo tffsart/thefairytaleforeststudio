@@ -145,3 +145,21 @@ if (floatingLights.length > 0) {
     });
 
 }
+/* =====================================
+   WINDOW PARALLAX
+===================================== */
+
+const sky = document.querySelector(".sky");
+
+if (sky) {
+
+    window.addEventListener("scroll", () => {
+
+        const scrollY = window.scrollY;
+
+        sky.style.transform =
+            `translateY(${scrollY * 0.03}px)`;
+
+    });
+
+}
