@@ -74,15 +74,18 @@ nav a:hover {
 }
 
 .sky {
+
     position: absolute;
     inset: 0;
 
-    background: radial-gradient(
-        circle at 50% 25%,
-        rgba(180, 190, 150, 0.25),
-        rgba(35, 50, 70, 0.45) 45%,
-        rgba(5, 7, 12, 1) 100%
-    );
+    background-image:
+        url("assets/forest-master.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
 
     animation: breatheSky 18s ease-in-out infinite;
 }
