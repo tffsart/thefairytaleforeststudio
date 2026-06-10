@@ -355,6 +355,88 @@ nav a:hover {
     pointer-events: none;
 }
 /* =====================================
+   ANCIENT TREE
+===================================== */
+
+.ancient-tree {
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 12%;
+
+    transform: translateX(-50%);
+
+    width: 140px;
+    height: 220px;
+
+    opacity: .28;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+/* tán cây */
+
+.ancient-tree::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 140px;
+    height: 140px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(35,35,35,.95),
+            rgba(15,15,15,.98)
+        );
+
+    filter: blur(6px);
+}
+
+/* thân cây */
+
+.ancient-tree::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+
+    width: 12px;
+    height: 110px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(35,35,35,.95),
+            rgba(10,10,10,1)
+        );
+
+    border-radius: 20px;
+}
+.ancient-tree {
+
+    animation:
+        treeBreath 10s ease-in-out infinite;
+}
+
+/* =====================================
    FLOATING LIGHTS
 ===================================== */
 
@@ -788,5 +870,25 @@ nav a:hover {
     50% {
 
         opacity: 1;
+    }
+}
+@keyframes treeBreath {
+
+    0%,100% {
+
+        opacity: .22;
+
+        transform:
+            translateX(-50%)
+            scale(1);
+    }
+
+    50% {
+
+        opacity: .32;
+
+        transform:
+            translateX(-50%)
+            scale(1.03);
     }
 }
