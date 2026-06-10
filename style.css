@@ -87,20 +87,13 @@ nav a:hover {
 
     background-repeat: no-repeat;
 
-    animation: breatheSky 18s ease-in-out infinite;
+    filter: brightness(2);
+
 }
 
 .glow {
-    position: absolute;
-    inset: 0;
 
-    background: radial-gradient(
-        circle at center,
-        rgba(170, 190, 130, 0.25),
-        transparent 70%
-    );
-
-    animation: breatheGlow 12s ease-in-out infinite;
+    display: none;
 }
 
 .window:hover .glow {
