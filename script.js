@@ -211,11 +211,37 @@ if (livingLight) {
         if (visible) {
 
             t += 0.02;
+            const viewportMiddle =
+    window.innerHeight * 0.5;
+
+if (
+    forestTransition &&
+    forestTransition.getBoundingClientRect().top <
+        viewportMiddle
+) {
+    currentZone = 1;
+}
+
+if (
+    forestPath &&
+    forestPath.getBoundingClientRect().top <
+        viewportMiddle
+) {
+    currentZone = 2;
+}
+
+if (
+    forestGate &&
+    forestGate.getBoundingClientRect().top <
+        viewportMiddle
+) {
+    currentZone = 3;
+}
 
             let baseX = 120;
-let baseY = 180;
+            let baseY = 180;
 
-if (windowElement) {
+        if (windowElement) {
 
     const rect =
         windowElement.getBoundingClientRect();
@@ -235,11 +261,38 @@ const journeyProgress =
         1
     );
 
-const journeyTargetX =
+let journeyTargetX =
     window.innerWidth * 0.5;
 
-const journeyTargetY =
+let journeyTargetY =
     window.innerHeight * 0.75;
+
+if (currentZone === 1) {
+
+    journeyTargetX =
+        window.innerWidth * 0.35;
+
+    journeyTargetY =
+        window.innerHeight * 0.45;
+}
+
+if (currentZone === 2) {
+
+    journeyTargetX =
+        window.innerWidth * 0.70;
+
+    journeyTargetY =
+        window.innerHeight * 0.60;
+}
+
+if (currentZone === 3) {
+
+    journeyTargetX =
+        window.innerWidth * 0.50;
+
+    journeyTargetY =
+        window.innerHeight * 0.80;
+}
 
 const journeyX =
     baseX +
