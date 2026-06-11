@@ -256,7 +256,7 @@ if (livingLight) {
 lastScrollY =
     window.scrollY;
 
-if (scrollSpeed < 3) {
+if (scrollSpeed < 20) {
 
     const trail =
         document.createElement("div");
