@@ -219,8 +219,8 @@ if (livingLight) {
                 window.innerHeight * 0.5;
 
             fairyWorldY +=
-                (targetWorldY - fairyWorldY)
-                * 0.015;
+    (targetWorldY - fairyWorldY)
+    * 0.08;
 
             const x =
                 window.innerWidth * 0.5 +
