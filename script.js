@@ -248,28 +248,11 @@ currentZone +=
     (targetZone - currentZone) *
     0.02;
 
-            let baseX = 120;
-            let baseY = 180;
+            
 
-        if (windowElement) {
+        
 
-    const rect =
-        windowElement.getBoundingClientRect();
 
-    baseX =
-        rect.left +
-        rect.width * 0.78;
-
-    baseY =
-        rect.top +
-        rect.height * 0.25;
-}
-
-const journeyProgress =
-    Math.min(
-        window.scrollY / 800,
-        1
-    );
 
 let journeyTargetX =
     window.innerWidth * 0.5;
@@ -306,28 +289,26 @@ if (currentZone >= 2.5) {
 
 
 
-const journeyX =
-    baseX +
-    (journeyTargetX - baseX) *
-    journeyProgress;
 
-const journeyY =
-    baseY +
-    (journeyTargetY - baseY) *
-    journeyProgress;
+
+
 
     if (!initialized) {
 
-    currentX = journeyX;
-    currentY = journeyY;
+    if (!initialized) {
 
-    targetX = journeyX;
-    targetY = journeyY;
-    
+    currentX =
+        window.innerWidth * 0.78;
+
+    currentY =
+        window.innerHeight * 0.25;
 
     roamTargetX = currentX;
     roamTargetY = currentY;
+
     initialized = true;
+
+}
     
 }
 
