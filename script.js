@@ -223,9 +223,9 @@ if (livingLight) {
 
             const targetWorldY =
                 window.scrollY +
-                window.innerHeight * 0.5;
-                const fairyAcceleration = 0.08;
-                const fairyMaxSpeed = 10;
+                window.innerHeight * 0.45;
+                const fairyAcceleration = 0.04;
+                const fairyMaxSpeed = 8;
                 const fairyFriction = 0.96;
 
                 
