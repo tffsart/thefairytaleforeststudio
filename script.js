@@ -219,9 +219,13 @@ if (livingLight) {
                 window.scrollY +
                 window.innerHeight * 0.5;
 
+                
+
+            const fairySpeed = 0.048;
+
             fairyWorldY +=
-    (targetWorldY - fairyWorldY)
-    * 0.08;
+            (targetWorldY - fairyWorldY)
+                * fairySpeed;
 
             const x =
                 window.innerWidth * 0.5 +
