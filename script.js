@@ -325,7 +325,8 @@ const journeyY =
     targetY = journeyY;
     
 
-
+    roamTargetX = currentX;
+    roamTargetY = currentY;
     initialized = true;
     
 }
