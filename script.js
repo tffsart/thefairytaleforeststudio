@@ -242,27 +242,36 @@ if (livingLight) {
             livingLight.style.top =
                 `${y}px`;
 
-            const trail =
-                document.createElement("div");
+            const distanceToTarget =
+    Math.abs(
+        targetWorldY - fairyWorldY
+    );
 
-            trail.className =
-                "light-trail";
+if (distanceToTarget < 300) {
 
-            trail.style.left =
-                `${x + 5}px`;
+    const trail =
+        document.createElement("div");
 
-            trail.style.top =
-                `${y + 5}px`;
+    trail.className =
+        "light-trail";
 
-            document.body.appendChild(
-                trail
-            );
+    trail.style.left =
+        `${x + 5}px`;
 
-            setTimeout(() => {
+    trail.style.top =
+        `${y + 5}px`;
 
-                trail.remove();
+    document.body.appendChild(
+        trail
+    );
 
-            }, 1200);
+    setTimeout(() => {
+
+        trail.remove();
+
+    }, 1200);
+
+}
         }
 
         requestAnimationFrame(
