@@ -223,9 +223,23 @@ if (livingLight) {
 
             const fairySpeed = 0.02;
 
-            fairyWorldY +=
-            (targetWorldY - fairyWorldY)
-                * fairySpeed;
+            const reactionDistance = 250;
+
+            const distanceToTarget =
+                Math.abs(
+                targetWorldY - fairyWorldY
+                );
+
+            if (
+                distanceToTarget >
+                reactionDistance
+    )     {
+
+    fairyWorldY +=
+        (targetWorldY - fairyWorldY)
+        * fairySpeed;
+
+}
 
             const x =
                 window.innerWidth * 0.5 +
