@@ -226,7 +226,7 @@ if (livingLight) {
 
             const fairySpeed = 0.02;
 
-            const reactionDistance = 800;
+            const reactionDistance = 600;
 
 const distanceToTarget =
     Math.abs(
