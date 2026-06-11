@@ -20,6 +20,29 @@ body {
     font-family: Georgia, serif;
 }
 
+#living-light {
+
+    position: fixed;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: #f5d58b;
+
+    box-shadow:
+        0 0 15px rgba(245,213,139,.95),
+        0 0 35px rgba(245,213,139,.8),
+        0 0 80px rgba(245,213,139,.5);
+
+    z-index: 99999;
+
+    pointer-events: none;
+
+    opacity: 0;
+}
+
 /* =====================================
    HERO (GIỮ NGUYÊN TỪ A)
 ===================================== */
@@ -138,27 +161,7 @@ nav a:hover {
     animation: breatheGlow 12s ease-in-out infinite;
 }
 
-.living-light {
 
-    position: absolute;
-
-    width: 12px;
-    height: 12px;
-
-    border-radius: 50%;
-
-    background: #f5d58b;
-
-    box-shadow:
-        0 0 12px rgba(245,213,139,.9),
-        0 0 30px rgba(245,213,139,.8),
-        0 0 60px rgba(245,213,139,.5);
-
-    z-index: 2;
-
-    left: 300px;
-    top: 90px;
-}
 /* =====================================
    STARS A
 ===================================== */
