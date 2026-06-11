@@ -200,6 +200,7 @@ if (livingLight) {
     let initialized = false;
     let lastScrollY = window.scrollY;
     let rememberedTargetY = 0;
+    let currentZigzagAmplitude = 80;
     let zigzagOffset = 0;
     let fairyVelocityY = 0;
     function animateLight() {
@@ -247,6 +248,18 @@ if (
     rememberedTargetY =
         targetWorldY;
 
+    if (Math.random() < 0.2) {
+
+        currentZigzagAmplitude =
+            120 + Math.random() * 100;
+
+    } else {
+
+        currentZigzagAmplitude =
+            60 + Math.random() * 60;
+
+    }
+
 }
 
 const direction =
@@ -290,20 +303,10 @@ fairyWorldY +=
 
     fairyVelocityY;
 
-            const distanceFromTarget =
-
-    Math.abs(
-        rememberedTargetY -
-        fairyWorldY
-    );
-
-zigzagOffset =
+            zigzagOffset =
 
     Math.sin(t * 3) *
-    Math.min(
-        distanceFromTarget * 0.15,
-        120
-    );
+    currentZigzagAmplitude;
 
 const x =
 
