@@ -203,6 +203,7 @@ if (livingLight) {
     let currentZigzagAmplitude = 80;
     let zigzagOffset = 0;
     let fairyVelocityY = 0;
+    let fairyWorldX = 0;
     let returningHome = false;
     function animateLight() {
 
@@ -218,6 +219,8 @@ if (livingLight) {
 
                     rememberedTargetY =
                     fairyWorldY;
+                    fairyWorldX =
+                        window.innerWidth * 0.5;
 
                 initialized = true;
             }
@@ -362,11 +365,20 @@ const idleOffsetX =
 
     Math.sin(t * 0.4) * 25;
 
-const x =
+fairyWorldX +=
+(
+    (
+        window.innerWidth * 0.5 +
+        zigzagOffset +
+        idleOffsetX
+    )
+    -
+    fairyWorldX
+)
+* 0.03;
 
-    window.innerWidth * 0.5 +
-    zigzagOffset +
-    idleOffsetX;
+const x =
+    fairyWorldX;
 
                 const fairyWorldX = x;
 
