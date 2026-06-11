@@ -955,7 +955,7 @@ nav a:hover {
 }
 .light-trail {
 
-    position: fixed;
+    position: absolute;
 
     width: 8px;
     height: 8px;

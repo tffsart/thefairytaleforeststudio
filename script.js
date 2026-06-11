@@ -231,6 +231,7 @@ if (livingLight) {
                 window.innerWidth * 0.5 +
                 Math.sin(t * 0.8) * 120 +
                 Math.cos(t * 0.4) * 50;
+                const fairyWorldX = x;
 
             const screenY =
                 fairyWorldY -
@@ -264,10 +265,10 @@ if (scrollSpeed < 3) {
         "light-trail";
 
     trail.style.left =
-        `${x + 5}px`;
+    `${fairyWorldX + 5}px`;
 
     trail.style.top =
-        `${y + 5}px`;
+    `${fairyWorldY + 5}px`;
 
     document.body.appendChild(
         trail
