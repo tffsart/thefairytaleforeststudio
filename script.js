@@ -184,6 +184,14 @@ if (livingLight) {
 
     let t = 0;
 
+    let currentX = 0;
+    let currentY = 0;
+
+    let targetX = 0;
+    let targetY = 0;
+
+    let initialized = false;
+
     function animateLight() {
 
         if (visible) {
@@ -213,29 +221,45 @@ const journeyProgress =
         1
     );
 
-const targetX =
+const journeyTargetX =
     window.innerWidth * 0.5;
 
-const targetY =
+const journeyTargetY =
     window.innerHeight * 0.75;
 
 const journeyX =
     baseX +
-    (targetX - baseX) *
+    (journeyTargetX - baseX) *
     journeyProgress;
 
 const journeyY =
     baseY +
-    (targetY - baseY) *
+    (journeyTargetY - baseY) *
     journeyProgress;
 
+    if (!initialized) {
+
+    currentX = journeyX;
+    currentY = journeyY;
+
+    targetX = journeyX;
+    targetY = journeyY;
+
+    initialized = true;
+}
+
+targetY = journeyY;
+
+currentX += (targetX - currentX) * 0.02;
+currentY += (targetY - currentY) * 0.02;
+
 const x =
-    journeyX +
+    currentX +
     Math.sin(t * 1.2) * 40 +
     Math.cos(t * 0.7) * 25;
 
 const y =
-    journeyY +
+    currentY +
     Math.cos(t * 1.1) * 30 +
     Math.sin(t * 0.5) * 15;
 
