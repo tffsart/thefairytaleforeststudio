@@ -163,3 +163,36 @@ if (sky) {
     });
 
 }
+
+const livingLight =
+    document.querySelector(".living-light");
+
+if (livingLight) {
+
+    let t = 0;
+
+    function animateLight() {
+
+        t += 0.02;
+
+        const x =
+            300 +
+            Math.sin(t * 1.3) * 10;
+
+        const y =
+            90 +
+            Math.cos(t * 0.9) * 8;
+
+        livingLight.style.left =
+            `${x}px`;
+
+        livingLight.style.top =
+            `${y}px`;
+
+        requestAnimationFrame(
+            animateLight
+        );
+    }
+
+    animateLight();
+}
