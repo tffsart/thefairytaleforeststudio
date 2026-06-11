@@ -191,6 +191,7 @@ if (livingLight) {
     let targetY = 0;
 
     let initialized = false;
+    let roamTargetX = 0;
 
     function animateLight() {
 
@@ -246,19 +247,32 @@ const journeyY =
     targetY = journeyY;
 
     initialized = true;
-    targetY = journeyY;
+    
 }
 
 targetY = journeyY;
+if (
+    Math.abs(
+        currentX - roamTargetX
+    ) < 80
+) {
 
-currentX += (targetX - currentX) * 0.02;
+    roamTargetX =
+        100 +
+        Math.random() *
+        (window.innerWidth - 200);
+}
+
+currentX +=
+    (roamTargetX - currentX) *
+    0.01;
 currentY += (targetY - currentY) * 0.02;
 
 currentY +=
     (targetY - currentY) * 0.03;
 
 const x =
-    journeyX +
+    currentX +
     Math.sin(t * 1.2) * 40 +
     Math.cos(t * 0.7) * 25;
 
