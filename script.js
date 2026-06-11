@@ -221,7 +221,7 @@ if (livingLight) {
 
                 
 
-            const fairySpeed = 0.048;
+            const fairySpeed = 0.02;
 
             fairyWorldY +=
             (targetWorldY - fairyWorldY)
