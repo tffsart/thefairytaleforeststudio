@@ -246,6 +246,7 @@ const journeyY =
     targetY = journeyY;
 
     initialized = true;
+    targetY = journeyY;
 }
 
 targetY = journeyY;
@@ -253,8 +254,11 @@ targetY = journeyY;
 currentX += (targetX - currentX) * 0.02;
 currentY += (targetY - currentY) * 0.02;
 
+currentY +=
+    (targetY - currentY) * 0.03;
+
 const x =
-    currentX +
+    journeyX +
     Math.sin(t * 1.2) * 40 +
     Math.cos(t * 0.7) * 25;
 
