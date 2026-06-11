@@ -175,8 +175,19 @@ if (sky) {
 const livingLight =
     document.getElementById("living-light");
 
-    const windowElement =
-    document.querySelector(".window");   
+const windowElement =
+    document.querySelector(".window");
+const hero =
+    document.querySelector(".hero");
+
+const forestTransition =
+    document.querySelector(".forest-transition");
+
+const forestPath =
+    document.querySelector(".forest-path");
+
+const forestGate =
+    document.querySelector(".forest-gate");   
 
 if (livingLight) {
 
@@ -192,6 +203,8 @@ if (livingLight) {
 
     let initialized = false;
     let roamTargetX = 0;
+
+    let currentZone = 0;
 
     function animateLight() {
 
