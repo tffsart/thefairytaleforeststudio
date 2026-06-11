@@ -158,7 +158,7 @@ if (sky) {
         const scrollY = window.scrollY;
 
         sky.style.transform =
-            `translateY(${scrollY * 0.03}px)`;
+            `translateY(${scrollY * 0.015}px)`;
 
     });
 
