@@ -303,10 +303,22 @@ fairyWorldY +=
 
     fairyVelocityY;
 
-            zigzagOffset =
+            if (
 
-    Math.sin(t * 3) *
-    currentZigzagAmplitude;
+    Math.abs(fairyVelocityY) > 1
+
+) {
+
+    zigzagOffset =
+
+        Math.sin(t * 3) *
+        currentZigzagAmplitude;
+
+} else {
+
+    zigzagOffset *= 0.9;
+
+}
 
 const x =
 
