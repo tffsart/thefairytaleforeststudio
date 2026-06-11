@@ -215,9 +215,13 @@ if (windowElement) {
         rect.height * 0.25;
 }
 
+const maxScroll =
+    document.body.scrollHeight -
+    window.innerHeight;
+
 const journeyProgress =
     Math.min(
-        window.scrollY / 800,
+        window.scrollY / maxScroll,
         1
     );
 
