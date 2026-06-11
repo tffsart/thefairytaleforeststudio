@@ -23,7 +23,7 @@ body {
 #living-light {
 
     position: fixed;
-
+    
     width: 18px;
     height: 18px;
 
@@ -41,6 +41,8 @@ body {
     pointer-events: none;
 
     opacity: 0;
+    transition:
+    opacity .6s ease;
 }
 
 /* =====================================

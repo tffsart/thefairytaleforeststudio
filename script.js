@@ -168,32 +168,64 @@ if (sky) {
    LIVING LIGHT - PHASE 1
 ===================================== */
 
+/* =====================================
+   LIVING LIGHT - PHASE 2
+===================================== */
+
 const livingLight =
     document.getElementById("living-light");
 
 if (livingLight) {
 
-    let lightVisible = false;
+    let visible = false;
+
+    let t = 0;
+
+    function animateLight() {
+
+        if (visible) {
+
+            t += 0.02;
+
+            const x =
+                120 +
+                Math.sin(t * 1.2) * 40 +
+                Math.cos(t * 0.7) * 25;
+
+            const y =
+                180 +
+                Math.cos(t * 1.1) * 30 +
+                Math.sin(t * 0.5) * 15;
+
+            livingLight.style.left =
+                `${x}px`;
+
+            livingLight.style.top =
+                `${y}px`;
+        }
+
+        requestAnimationFrame(
+            animateLight
+        );
+    }
+
+    animateLight();
 
     window.addEventListener("scroll", () => {
 
         if (
-            window.scrollY > 50 &&
-            !lightVisible
+            window.scrollY > 50
         ) {
+
+            visible = true;
 
             livingLight.style.opacity = "1";
 
-            lightVisible = true;
-        }
+        } else {
 
-        if (
-            window.scrollY <= 50
-        ) {
+            visible = false;
 
             livingLight.style.opacity = "0";
-
-            lightVisible = false;
         }
 
     });
