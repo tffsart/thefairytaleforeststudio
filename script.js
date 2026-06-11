@@ -248,15 +248,7 @@ if (livingLight) {
             livingLight.style.top =
                 `${y}px`;
 
-            const scrollSpeed =
-    Math.abs(
-        window.scrollY - lastScrollY
-    );
-
-lastScrollY =
-    window.scrollY;
-
-if (scrollSpeed < 20) {
+            if (true) {
 
     const trail =
         document.createElement("div");
