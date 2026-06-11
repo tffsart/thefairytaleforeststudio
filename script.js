@@ -244,6 +244,27 @@ const y =
 
             livingLight.style.top =
                 `${y}px`;
+                const trail =
+    document.createElement("div");
+
+trail.className =
+    "light-trail";
+
+trail.style.left =
+    `${x + 5}px`;
+
+trail.style.top =
+    `${y + 5}px`;
+
+document.body.appendChild(
+    trail
+);
+
+setTimeout(() => {
+
+    trail.remove();
+
+}, 1200);
         }
 
         requestAnimationFrame(
