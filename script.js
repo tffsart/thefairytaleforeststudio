@@ -202,7 +202,9 @@ if (livingLight) {
     let targetY = 0;
 
     let initialized = false;
+
     let roamTargetX = 0;
+    let roamTargetY = 0;
 
     let currentZone = 0;
     let targetZone = 0;
@@ -328,7 +330,7 @@ const journeyY =
     
 }
 
-targetY = journeyY;
+
 let zoneCenterX =
     window.innerWidth * 0.5;
 
@@ -350,6 +352,26 @@ if (currentZone >= 2.5) {
         window.innerWidth * 0.50;
 }
 
+let zoneCenterY =
+    window.innerHeight * 0.35;
+
+if (currentZone >= 0.5) {
+
+    zoneCenterY =
+        window.innerHeight * 0.45;
+}
+
+if (currentZone >= 1.5) {
+
+    zoneCenterY =
+        window.innerHeight * 0.60;
+}
+
+if (currentZone >= 2.5) {
+
+    zoneCenterY =
+        window.innerHeight * 0.80;
+}
 if (
     Math.abs(
         currentX - roamTargetX
@@ -363,14 +385,27 @@ if (
             - 150
         );
 }
+if (
+    Math.abs(
+        currentY - roamTargetY
+    ) < 20
+) {
+
+    roamTargetY =
+        zoneCenterY +
+        (
+            Math.random() * 160
+            - 80
+        );
+}
 
 currentX +=
     (roamTargetX - currentX) *
     0.004;
-currentY += (targetY - currentY) * 0.02;
 
 currentY +=
-    (targetY - currentY) * 0.03;
+    (roamTargetY - currentY) *
+    0.004;
 
 const x =
     currentX +
