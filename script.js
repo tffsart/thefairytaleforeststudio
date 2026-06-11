@@ -198,6 +198,7 @@ if (livingLight) {
     let fairyWorldY = 0;
 
     let initialized = false;
+    let lastScrollY = window.scrollY;
 
     function animateLight() {
 
@@ -242,12 +243,15 @@ if (livingLight) {
             livingLight.style.top =
                 `${y}px`;
 
-            const distanceToTarget =
+            const scrollSpeed =
     Math.abs(
-        targetWorldY - fairyWorldY
+        window.scrollY - lastScrollY
     );
 
-if (distanceToTarget < 300) {
+lastScrollY =
+    window.scrollY;
+
+if (scrollSpeed < 3) {
 
     const trail =
         document.createElement("div");
