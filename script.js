@@ -203,6 +203,7 @@ if (livingLight) {
     let currentZigzagAmplitude = 80;
     let zigzagOffset = 0;
     let fairyVelocityY = 0;
+    let returningHome = false;
     function animateLight() {
 
         if (visible) {
@@ -221,9 +222,20 @@ if (livingLight) {
                 initialized = true;
             }
 
-            const targetWorldY =
-                window.scrollY +
-                window.innerHeight * 0.45;
+            let targetWorldY;
+
+if (returningHome) {
+
+    targetWorldY =
+        window.innerHeight * 0.35;
+
+} else {
+
+    targetWorldY =
+        window.scrollY +
+        window.innerHeight * 0.45;
+
+}
                 const fairyAcceleration = 0.04;
                 const fairyMaxSpeed = 8;
                 const fairyFriction = 0.96;
@@ -244,6 +256,14 @@ if (
     distanceToTarget >
     reactionDistance
 ) {
+    if (
+    returningHome
+) {
+
+    rememberedTargetY =
+        targetWorldY;
+
+}
 
     rememberedTargetY =
         targetWorldY;
@@ -302,6 +322,24 @@ fairyVelocityY *=
 fairyWorldY +=
 
     fairyVelocityY;
+
+    if (
+    returningHome &&
+    Math.abs(
+        fairyWorldY -
+        targetWorldY
+    ) < 40
+) {
+
+    livingLight.style.opacity = "0";
+
+    visible = false;
+
+    returningHome = false;
+
+    initialized = false;
+
+}
 
             if (
 
@@ -393,12 +431,13 @@ trail.style.top =
 
         } else {
 
-            visible = false;
+    if (visible) {
 
-            livingLight.style.opacity = "0";
+        returningHome = true;
 
-            initialized = false;
-        }
+    }
+
+}
 
     });
 
