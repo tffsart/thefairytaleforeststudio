@@ -207,6 +207,9 @@ if (livingLight) {
     let currentZone = 0;
     let targetZone = 0;
 
+    let zoneX = 0;
+    let zoneY = 0;
+
     function animateLight() {
 
         if (visible) {
@@ -300,15 +303,23 @@ if (currentZone >= 2.5) {
     journeyTargetY =
         window.innerHeight * 0.80;
 }
+zoneX +=
+    (journeyTargetX - zoneX) *
+    0.008;
+
+zoneY +=
+    (journeyTargetY - zoneY) *
+    0.008;
+
 
 const journeyX =
     baseX +
-    (journeyTargetX - baseX) *
+    (zoneX - baseX) *
     journeyProgress;
 
 const journeyY =
     baseY +
-    (journeyTargetY - baseY) *
+    (zoneY - baseY) *
     journeyProgress;
 
     if (!initialized) {
@@ -318,6 +329,9 @@ const journeyY =
 
     targetX = journeyX;
     targetY = journeyY;
+    
+    zoneX = journeyTargetX;
+    zoneY = journeyTargetY;
 
     initialized = true;
     
