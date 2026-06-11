@@ -195,233 +195,74 @@ if (livingLight) {
 
     let t = 0;
 
-    let currentX = 0;
-    let currentY = 0;
-
-
-    let targetX = 0;
-    let targetY = 0;
+    let fairyWorldY = 0;
 
     let initialized = false;
-
-    let roamTargetX = 0;
-    let roamTargetY = 0;
-
-    let currentZone = 0;
-    let targetZone = 0;
-
-    
 
     function animateLight() {
 
         if (visible) {
 
             t += 0.02;
-            const viewportMiddle =
-    window.innerHeight * 0.5;
 
-targetZone = 0;
+            if (!initialized) {
 
-if (
-    forestTransition &&
-    forestTransition.getBoundingClientRect().top <
-        viewportMiddle
-) {
-    targetZone = 1;
-}
+                fairyWorldY =
+                    window.scrollY +
+                    window.innerHeight * 0.35;
 
-if (
-    forestPath &&
-    forestPath.getBoundingClientRect().top <
-        viewportMiddle
-) {
-    targetZone = 2;
-}
+                initialized = true;
+            }
 
-if (
-    forestGate &&
-    forestGate.getBoundingClientRect().top <
-        viewportMiddle
-) {
-    targetZone = 3;
-}
+            const targetWorldY =
+                window.scrollY +
+                window.innerHeight * 0.5;
 
-currentZone +=
-    (targetZone - currentZone) *
-    0.02;
+            fairyWorldY +=
+                (targetWorldY - fairyWorldY)
+                * 0.015;
 
-            
+            const x =
+                window.innerWidth * 0.5 +
+                Math.sin(t * 0.8) * 120 +
+                Math.cos(t * 0.4) * 50;
 
-        
+            const screenY =
+                fairyWorldY -
+                window.scrollY;
 
-
-
-let journeyTargetX =
-    window.innerWidth * 0.5;
-
-let journeyTargetY =
-    window.innerHeight * 0.75;
-
-if (currentZone >= 0.5) {
-
-    journeyTargetX =
-        window.innerWidth * 0.35;
-
-    journeyTargetY =
-        window.innerHeight * 0.45;
-}
-
-if (currentZone >= 1.5) {
-
-    journeyTargetX =
-        window.innerWidth * 0.70;
-
-    journeyTargetY =
-        window.innerHeight * 0.60;
-}
-
-if (currentZone >= 2.5) {
-
-    journeyTargetX =
-        window.innerWidth * 0.50;
-
-    journeyTargetY =
-        window.innerHeight * 0.80;
-}
-
-
-    if (!initialized) {
-
-    currentX =
-        window.innerWidth * 0.78;
-
-    currentY =
-        window.innerHeight * 0.25;
-    
-
-    roamTargetX = currentX;
-    roamTargetY = currentY;
-
-    initialized = true;
-
-}
-    
-
-
-
-let zoneCenterX =
-    window.innerWidth * 0.5;
-
-if (currentZone >= 0.5) {
-
-    zoneCenterX =
-        window.innerWidth * 0.35;
-}
-
-if (currentZone >= 1.5) {
-
-    zoneCenterX =
-        window.innerWidth * 0.70;
-}
-
-if (currentZone >= 2.5) {
-
-    zoneCenterX =
-        window.innerWidth * 0.50;
-}
-
-
-let zoneCenterY =
-    window.innerHeight * 0.35;
-
-if (currentZone >= 0.5) {
-
-    zoneCenterY =
-        window.innerHeight * 0.45;
-}
-
-if (currentZone >= 1.5) {
-
-    zoneCenterY =
-        window.innerHeight * 0.60;
-}
-
-if (currentZone >= 2.5) {
-
-    zoneCenterY =
-        window.innerHeight * 0.80;
-}
-if (
-    Math.abs(
-        currentX - roamTargetX
-    ) < 20
-) {
-
-    roamTargetX =
-    zoneCenterX +
-    (
-        Math.random() * 300
-        - 150
-    );
-}
-if (
-    Math.abs(
-        currentY - roamTargetY
-    ) < 20
-) {
-
-    roamTargetY =
-    zoneCenterY +
-    (
-        Math.random() * 160
-        - 80
-    );
-}
-
-currentX +=
-    (roamTargetX - currentX) *
-    0.004;
-
-currentY +=
-    (roamTargetY - currentY) *
-    0.004;
-
-const x =
-    currentX +
-    Math.sin(t * 1.2) * 40 +
-    Math.cos(t * 0.7) * 25;
-
-const y =
-    currentY +
-    Math.cos(t * 1.1) * 30 +
-    Math.sin(t * 0.5) * 15;
+            const y =
+                screenY +
+                Math.cos(t * 1.1) * 30 +
+                Math.sin(t * 0.5) * 15;
 
             livingLight.style.left =
                 `${x}px`;
 
             livingLight.style.top =
                 `${y}px`;
-                const trail =
-    document.createElement("div");
 
-trail.className =
-    "light-trail";
+            const trail =
+                document.createElement("div");
 
-trail.style.left =
-    `${x + 5}px`;
+            trail.className =
+                "light-trail";
 
-trail.style.top =
-    `${y + 5}px`;
+            trail.style.left =
+                `${x + 5}px`;
 
-document.body.appendChild(
-    trail
-);
+            trail.style.top =
+                `${y + 5}px`;
 
-setTimeout(() => {
+            document.body.appendChild(
+                trail
+            );
 
-    trail.remove();
+            setTimeout(() => {
 
-}, 1200);
+                trail.remove();
+
+            }, 1200);
         }
 
         requestAnimationFrame(
@@ -446,6 +287,8 @@ setTimeout(() => {
             visible = false;
 
             livingLight.style.opacity = "0";
+
+            initialized = false;
         }
 
     });
