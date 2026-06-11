@@ -210,8 +210,7 @@ if (livingLight) {
     let currentZone = 0;
     let targetZone = 0;
 
-    let cameraTargetX = 0;
-    let cameraTargetY = 0;
+    
 
     function animateLight() {
 
@@ -359,11 +358,11 @@ if (
 ) {
 
     roamTargetX =
-        cameraTargetX +
-        (
-            Math.random() * 300
-            - 150
-        );
+    zoneCenterX +
+    (
+        Math.random() * 300
+        - 150
+    );
 }
 if (
     Math.abs(
@@ -372,11 +371,11 @@ if (
 ) {
 
     roamTargetY =
-        cameraTargetY +
-        (
-            Math.random() * 160
-            - 80
-        );
+    zoneCenterY +
+    (
+        Math.random() * 160
+        - 80
+    );
 }
 
 currentX +=
