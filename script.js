@@ -199,7 +199,7 @@ if (livingLight) {
 
     let initialized = false;
     let lastScrollY = window.scrollY;
-
+    let rememberedTargetY = 0;
     function animateLight() {
 
         if (visible) {
@@ -212,6 +212,9 @@ if (livingLight) {
                     window.scrollY +
                     window.innerHeight * 0.35;
 
+                    rememberedTargetY =
+                    fairyWorldY;
+
                 initialized = true;
             }
 
@@ -223,23 +226,29 @@ if (livingLight) {
 
             const fairySpeed = 0.02;
 
-            const reactionDistance = 250;
+            const reactionDistance = 400;
 
-            const distanceToTarget =
-                Math.abs(
-                targetWorldY - fairyWorldY
-                );
+const distanceToTarget =
+    Math.abs(
+        targetWorldY -
+        rememberedTargetY
+    );
 
-            if (
-                distanceToTarget >
-                reactionDistance
-    )     {
+if (
+    distanceToTarget >
+    reactionDistance
+) {
 
-    fairyWorldY +=
-        (targetWorldY - fairyWorldY)
-        * fairySpeed;
+    rememberedTargetY =
+        targetWorldY;
 
 }
+
+fairyWorldY +=
+    (
+        rememberedTargetY -
+        fairyWorldY
+    ) * fairySpeed;
 
             const x =
                 window.innerWidth * 0.5 +
