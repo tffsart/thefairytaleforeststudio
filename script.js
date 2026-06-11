@@ -198,6 +198,7 @@ if (livingLight) {
     let currentX = 0;
     let currentY = 0;
 
+
     let targetX = 0;
     let targetY = 0;
 
@@ -288,13 +289,6 @@ if (currentZone >= 2.5) {
 }
 
 
-
-
-
-
-
-    if (!initialized) {
-
     if (!initialized) {
 
     currentX =
@@ -302,6 +296,7 @@ if (currentZone >= 2.5) {
 
     currentY =
         window.innerHeight * 0.25;
+    
 
     roamTargetX = currentX;
     roamTargetY = currentY;
@@ -310,7 +305,7 @@ if (currentZone >= 2.5) {
 
 }
     
-}
+
 
 
 let zoneCenterX =
