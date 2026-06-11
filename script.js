@@ -164,3 +164,38 @@ if (sky) {
 
 }
 
+/* =====================================
+   LIVING LIGHT - PHASE 1
+===================================== */
+
+const livingLight =
+    document.getElementById("living-light");
+
+if (livingLight) {
+
+    let lightVisible = false;
+
+    window.addEventListener("scroll", () => {
+
+        if (
+            window.scrollY > 50 &&
+            !lightVisible
+        ) {
+
+            livingLight.style.opacity = "1";
+
+            lightVisible = true;
+        }
+
+        if (
+            window.scrollY <= 50
+        ) {
+
+            livingLight.style.opacity = "0";
+
+            lightVisible = false;
+        }
+
+    });
+
+}
