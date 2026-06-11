@@ -207,13 +207,35 @@ if (windowElement) {
         rect.height * 0.25;
 }
 
-const x =
+const journeyProgress =
+    Math.min(
+        window.scrollY / 800,
+        1
+    );
+
+const targetX =
+    window.innerWidth * 0.5;
+
+const targetY =
+    window.innerHeight * 0.75;
+
+const journeyX =
     baseX +
+    (targetX - baseX) *
+    journeyProgress;
+
+const journeyY =
+    baseY +
+    (targetY - baseY) *
+    journeyProgress;
+
+const x =
+    journeyX +
     Math.sin(t * 1.2) * 40 +
     Math.cos(t * 0.7) * 25;
 
 const y =
-    baseY +
+    journeyY +
     Math.cos(t * 1.1) * 30 +
     Math.sin(t * 0.5) * 15;
 
