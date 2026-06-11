@@ -329,6 +329,27 @@ const journeyY =
 }
 
 targetY = journeyY;
+let zoneCenterX =
+    window.innerWidth * 0.5;
+
+if (currentZone >= 0.5) {
+
+    zoneCenterX =
+        window.innerWidth * 0.35;
+}
+
+if (currentZone >= 1.5) {
+
+    zoneCenterX =
+        window.innerWidth * 0.70;
+}
+
+if (currentZone >= 2.5) {
+
+    zoneCenterX =
+        window.innerWidth * 0.50;
+}
+
 if (
     Math.abs(
         currentX - roamTargetX
@@ -336,9 +357,11 @@ if (
 ) {
 
     roamTargetX =
-        100 +
-        Math.random() *
-        (window.innerWidth - 200);
+        zoneCenterX +
+        (
+            Math.random() * 300
+            - 150
+        );
 }
 
 currentX +=
