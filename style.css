@@ -107,6 +107,23 @@ nav a:hover {
 
     pointer-events: none;
 }
+.foreground-shadow {
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,0.22) 0%,
+            rgba(0,0,0,0.10) 18%,
+            transparent 40%
+        );
+
+    z-index: 1;
+
+    pointer-events: none;
+}
 
 .glow {
     position: absolute;
