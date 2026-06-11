@@ -254,7 +254,7 @@ targetY = journeyY;
 if (
     Math.abs(
         currentX - roamTargetX
-    ) < 80
+    ) < 20
 ) {
 
     roamTargetX =
@@ -265,7 +265,7 @@ if (
 
 currentX +=
     (roamTargetX - currentX) *
-    0.01;
+    0.004;
 currentY += (targetY - currentY) * 0.02;
 
 currentY +=
