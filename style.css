@@ -90,6 +90,23 @@ nav a:hover {
     animation: breatheSky 18s ease-in-out infinite;
     transition: transform 0.1s linear;
 }
+.distant-mist {
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(210,220,200,0.10) 0%,
+            rgba(210,220,200,0.06) 30%,
+            transparent 65%
+        );
+
+    z-index: 1;
+
+    pointer-events: none;
+}
 
 .glow {
     position: absolute;
