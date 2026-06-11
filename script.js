@@ -225,8 +225,8 @@ if (livingLight) {
                 window.scrollY +
                 window.innerHeight * 0.5;
                 const fairyAcceleration = 0.08;
-                const fairyMaxSpeed = 18;
-                const fairyFriction = 0.94;
+                const fairyMaxSpeed = 10;
+                const fairyFriction = 0.96;
 
                 
 
@@ -320,10 +320,15 @@ fairyWorldY +=
 
 }
 
+const idleOffsetX =
+
+    Math.sin(t * 0.4) * 25;
+
 const x =
 
     window.innerWidth * 0.5 +
-    zigzagOffset;
+    zigzagOffset +
+    idleOffsetX;
 
                 const fairyWorldX = x;
 
