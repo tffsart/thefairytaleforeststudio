@@ -175,6 +175,9 @@ if (sky) {
 const livingLight =
     document.getElementById("living-light");
 
+    const windowElement =
+    document.querySelector(".window");   
+
 if (livingLight) {
 
     let visible = false;
@@ -187,15 +190,32 @@ if (livingLight) {
 
             t += 0.02;
 
-            const x =
-                120 +
-                Math.sin(t * 1.2) * 40 +
-                Math.cos(t * 0.7) * 25;
+            let baseX = 120;
+let baseY = 180;
 
-            const y =
-                180 +
-                Math.cos(t * 1.1) * 30 +
-                Math.sin(t * 0.5) * 15;
+if (windowElement) {
+
+    const rect =
+        windowElement.getBoundingClientRect();
+
+    baseX =
+        rect.left +
+        rect.width * 0.78;
+
+    baseY =
+        rect.top +
+        rect.height * 0.25;
+}
+
+const x =
+    baseX +
+    Math.sin(t * 1.2) * 40 +
+    Math.cos(t * 0.7) * 25;
+
+const y =
+    baseY +
+    Math.cos(t * 1.1) * 30 +
+    Math.sin(t * 0.5) * 15;
 
             livingLight.style.left =
                 `${x}px`;
