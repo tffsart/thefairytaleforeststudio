@@ -205,6 +205,7 @@ if (livingLight) {
     let roamTargetX = 0;
 
     let currentZone = 0;
+    let targetZone = 0;
 
     function animateLight() {
 
@@ -214,12 +215,14 @@ if (livingLight) {
             const viewportMiddle =
     window.innerHeight * 0.5;
 
+targetZone = 0;
+
 if (
     forestTransition &&
     forestTransition.getBoundingClientRect().top <
         viewportMiddle
 ) {
-    currentZone = 1;
+    targetZone = 1;
 }
 
 if (
@@ -227,7 +230,7 @@ if (
     forestPath.getBoundingClientRect().top <
         viewportMiddle
 ) {
-    currentZone = 2;
+    targetZone = 2;
 }
 
 if (
@@ -235,8 +238,12 @@ if (
     forestGate.getBoundingClientRect().top <
         viewportMiddle
 ) {
-    currentZone = 3;
+    targetZone = 3;
 }
+
+currentZone +=
+    (targetZone - currentZone) *
+    0.02;
 
             let baseX = 120;
             let baseY = 180;
@@ -267,7 +274,7 @@ let journeyTargetX =
 let journeyTargetY =
     window.innerHeight * 0.75;
 
-if (currentZone === 1) {
+if (currentZone >= 0.5) {
 
     journeyTargetX =
         window.innerWidth * 0.35;
@@ -276,7 +283,7 @@ if (currentZone === 1) {
         window.innerHeight * 0.45;
 }
 
-if (currentZone === 2) {
+if (currentZone >= 1.5) {
 
     journeyTargetX =
         window.innerWidth * 0.70;
@@ -285,7 +292,7 @@ if (currentZone === 2) {
         window.innerHeight * 0.60;
 }
 
-if (currentZone === 3) {
+if (currentZone >= 2.5) {
 
     journeyTargetX =
         window.innerWidth * 0.50;
