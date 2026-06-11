@@ -265,10 +265,10 @@ if (scrollSpeed < 3) {
         "light-trail";
 
     trail.style.left =
-    `${fairyWorldX + 5}px`;
+    `${x + 5}px`;
 
-    trail.style.top =
-    `${fairyWorldY + 5}px`;
+trail.style.top =
+    `${fairyWorldY + (y - screenY) + 5}px`;
 
     document.body.appendChild(
         trail
