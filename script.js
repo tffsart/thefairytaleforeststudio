@@ -227,10 +227,7 @@ if (livingLight) {
 
             t += 0.02;
 
-            if (guideReaction > 0) {
-
-    guideReaction--;
-}
+            
 
 if (guideState === "freeze") {
 
@@ -453,7 +450,11 @@ if (
 
 const idleOffsetX =
 
-    guideFreeze > 0
+    guideState === "freeze"
+    ||
+    guideState === "react"
+    ||
+    guideState === "pause"
 
     ?
 
