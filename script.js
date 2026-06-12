@@ -220,6 +220,7 @@ if (livingLight) {
     let guideFreeze = 0;
     let guideState = "idle";
     let princessMode = false;
+    let princessTransition = 0;
 
     function animateLight() {
 
@@ -513,25 +514,31 @@ const x =
     &&
     guideState === "fly"
 
-    &&
-
-    Math.abs(
-        fairyWorldY -
-        rememberedTargetY
-    ) < 80
-
 ) {
 
-    princessMode = true;
+    princessTransition += 0.015;
 
-} else if (
+    if (
+        princessTransition > 1
+    ) {
 
-    !guideMode
+        princessTransition = 1;
+    }
 
-) {
+} else {
 
-    princessMode = false;
+    princessTransition -= 0.03;
+
+    if (
+        princessTransition < 0
+    ) {
+
+        princessTransition = 0;
+    }
 }
+
+princessMode =
+    princessTransition > 0.5;
             
                 const screenY =
                 fairyWorldY -
@@ -544,7 +551,7 @@ const x =
 
             livingLight.style.backgroundImage =
 
-    princessMode
+    princessTransition > 0.5
 
     ?
 
@@ -553,6 +560,15 @@ const x =
     :
 
     'url("assets/tinysnowflake1.png")';
+
+    livingLight.style.transform =
+
+    `scale(${1 + princessTransition * 0.35})`;
+
+livingLight.style.filter =
+
+    `brightness(${1 + princessTransition * 0.8})
+     drop-shadow(0 0 ${8 + princessTransition * 30}px rgba(245,213,139,.9))`;
             
                 livingLight.style.left =
                 `${x}px`;
@@ -596,7 +612,16 @@ const x =
 
 }
 
-if (Math.random() < 0.15) {
+if (
+
+    Math.random() <
+
+    (
+        0.15 +
+        princessTransition * 0.35
+    )
+
+) {
 
     const dust =
         document.createElement("div");
