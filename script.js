@@ -213,11 +213,40 @@ if (livingLight) {
     let fairyVelocityY = 0;
     
     let returningHome = false;
-    
+    let fairyState = "follow";
     
     function animateLight() {
 
         if (visible) {
+
+            if (
+    invitation &&
+    fairyState ===
+    "follow"
+) {
+
+    const rect =
+        invitation.getBoundingClientRect();
+
+    const invitationFocused =
+
+        rect.top >
+        window.innerHeight * 0.25
+
+        &&
+
+        rect.bottom <
+        window.innerHeight * 0.75;
+
+    if (
+        invitationFocused
+    ) {
+
+        fairyState =
+            "guide";
+    }
+
+}
 
             t += 0.02;
 
@@ -376,6 +405,15 @@ const idleOffsetX =
     Math.sin(t * 0.4) * 25;
 
 
+if (
+    fairyState ===
+    "guide"
+) {
+
+    currentZigzagAmplitude =
+        180;
+
+}
 
 const x =
 
@@ -436,24 +474,36 @@ trail.style.top =
 
     window.addEventListener("scroll", () => {
 
+    if (
+        window.scrollY > 50
+    ) {
+
+        visible = true;
+
+        livingLight.style.opacity = "1";
+
         if (
-            window.scrollY > 50
+            fairyState ===
+            "return-home"
         ) {
 
-            visible = true;
+            fairyState =
+                "follow";
+        }
 
-            livingLight.style.opacity = "1";
+    } else {
 
-        } else {
+        if (visible) {
 
-    if (visible) {
+            returningHome = true;
 
-        returningHome = true;
+            fairyState =
+                "return-home";
+
+        }
 
     }
 
-}
-
-    });
+});
 
 }
