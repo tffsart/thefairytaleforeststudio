@@ -213,40 +213,13 @@ if (livingLight) {
     let fairyVelocityY = 0;
     
     let returningHome = false;
-    let fairyState = "follow";
+    
     
     function animateLight() {
 
         if (visible) {
 
-            if (
-    invitation &&
-    fairyState ===
-    "follow"
-) {
-
-    const rect =
-        invitation.getBoundingClientRect();
-
-    const invitationFocused =
-
-        rect.top >
-        window.innerHeight * 0.25
-
-        &&
-
-        rect.bottom <
-        window.innerHeight * 0.75;
-
-    if (
-        invitationFocused
-    ) {
-
-        fairyState =
-            "guide";
-    }
-
-}
+            
 
             t += 0.02;
 
@@ -405,15 +378,7 @@ const idleOffsetX =
     Math.sin(t * 0.4) * 25;
 
 
-if (
-    fairyState ===
-    "guide"
-) {
 
-    currentZigzagAmplitude =
-        180;
-
-}
 
 const x =
 
@@ -482,23 +447,11 @@ trail.style.top =
 
         livingLight.style.opacity = "1";
 
-        if (
-            fairyState ===
-            "return-home"
-        ) {
-
-            fairyState =
-                "follow";
-        }
-
     } else {
 
         if (visible) {
 
             returningHome = true;
-
-            fairyState =
-                "return-home";
 
         }
 
