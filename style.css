@@ -969,16 +969,17 @@ nav a:hover {
 
     position: absolute;
 
-    width: 4px;
-    height: 4px;
+    width: 18px;
+    height: 18px;
 
-    border-radius: 50%;
+    background-image:
+        url("assets/tinysnowflake1.png");
 
-    background: rgba(245,213,139,.9);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 
-    box-shadow:
-        0 0 4px rgba(245,213,139,.8),
-        0 0 10px rgba(245,213,139,.6);
+    opacity: .35;
 
     pointer-events: none;
 
@@ -1002,5 +1003,52 @@ nav a:hover {
         opacity: 0;
 
         transform: scale(.3);
+    }
+}
+
+.fairy-dust {
+
+    position: fixed;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: rgba(245,213,139,.8);
+
+    box-shadow:
+        0 0 6px rgba(245,213,139,.8);
+
+    pointer-events: none;
+
+    z-index: 99997;
+
+    animation:
+        fairyDustFall 3s linear forwards;
+}
+
+@keyframes fairyDustFall {
+
+    from {
+
+        opacity: .9;
+
+        transform:
+            translateY(0)
+            translateX(0);
+    }
+
+    to {
+
+        opacity: 0;
+
+        transform:
+            translateY(60px)
+            translateX(
+                calc(
+                    (var(--drift, 0) * 1px)
+                )
+            );
     }
 }

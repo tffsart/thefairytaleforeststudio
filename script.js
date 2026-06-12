@@ -427,6 +427,31 @@ trail.style.top =
     }, 1200);
 
 }
+
+if (Math.random() < 0.15) {
+
+    const dust =
+        document.createElement("div");
+
+    dust.className =
+        "fairy-dust";
+
+    dust.style.left =
+        `${x + (Math.random() * 20 - 10)}px`;
+
+    dust.style.top =
+        `${y + 10}px`;
+
+    document.body.appendChild(
+        dust
+    );
+
+    setTimeout(() => {
+
+        dust.remove();
+
+    }, 3000);
+}
         }
 
         requestAnimationFrame(
