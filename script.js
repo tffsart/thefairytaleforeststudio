@@ -297,6 +297,11 @@ if (returningHome) {
     rememberedTargetY =
         targetWorldY;
 
+} else if (guideMode) {
+
+    rememberedTargetY =
+        targetWorldY;
+
 } else if (
 
     distanceToTarget >
