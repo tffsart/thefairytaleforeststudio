@@ -219,6 +219,8 @@ if (livingLight) {
     let guidePause = 0;
     let guideFreeze = 0;
     let guideState = "idle";
+    let princessMode = false;
+
     function animateLight() {
 
         if (visible) {
@@ -505,7 +507,33 @@ const x =
 
                 const fairyWorldX = x;
 
-            const screenY =
+                if (
+
+    guideMode
+    &&
+    guideState === "fly"
+
+    &&
+
+    Math.abs(
+        fairyWorldY -
+        rememberedTargetY
+    ) < 80
+
+) {
+
+    princessMode = true;
+
+} else if (
+
+    !guideMode
+
+) {
+
+    princessMode = false;
+}
+            
+                const screenY =
                 fairyWorldY -
                 window.scrollY;
 
@@ -514,7 +542,19 @@ const x =
                 Math.cos(t * 1.1) * 30 +
                 Math.sin(t * 0.5) * 15;
 
-            livingLight.style.left =
+            livingLight.style.backgroundImage =
+
+    princessMode
+
+    ?
+
+    'url("assets/tinyprincess1.png")'
+
+    :
+
+    'url("assets/tinysnowflake1.png")';
+            
+                livingLight.style.left =
                 `${x}px`;
 
             livingLight.style.top =
