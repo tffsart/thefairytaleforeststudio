@@ -267,18 +267,17 @@ const distanceToTarget =
         rememberedTargetY
     );
 
-if (
-    distanceToTarget >
-    reactionDistance
-) {
-    if (
-    returningHome
-) {
+if (returningHome) {
 
     rememberedTargetY =
         targetWorldY;
 
-}
+} else if (
+
+    distanceToTarget >
+    reactionDistance
+
+) {
 
     rememberedTargetY =
         targetWorldY;
