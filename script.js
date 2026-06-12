@@ -431,7 +431,7 @@ const reactionOffset =
 
     ?
 
-    Math.sin(t * 25) * 20
+    Math.sin(t * 60) * 6
 
     :
 
@@ -572,7 +572,7 @@ if (
 ) {
 
     guideReaction = 50;
-guidePause = 40;
+guidePause = 100;
 
 rememberedTargetY = -99999;
 }
