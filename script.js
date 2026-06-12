@@ -213,7 +213,7 @@ if (livingLight) {
     let fairyVelocityY = 0;
     
     let returningHome = false;
-    
+    let guideMode = false;
     
     function animateLight() {
 
@@ -243,6 +243,16 @@ if (returningHome) {
 
     targetWorldY =
         window.innerHeight * 0.35;
+
+} else if (guideMode) {
+
+    const invitationRect =
+        invitation.getBoundingClientRect();
+
+    targetWorldY =
+        window.scrollY +
+        invitationRect.top +
+        invitationRect.height * 0.5;
 
 } else {
 
@@ -376,14 +386,29 @@ const idleOffsetX =
 
     Math.sin(t * 0.4) * 25;
 
+    let guideOffsetX = 0;
 
+if (guideMode) {
+
+    const invitationRect =
+        invitation.getBoundingClientRect();
+
+    const invitationCenterX =
+        invitationRect.left +
+        invitationRect.width * 0.5;
+
+    guideOffsetX =
+        invitationCenterX -
+        window.innerWidth * 0.5;
+}
 
 
 const x =
 
     window.innerWidth * 0.5 +
     zigzagOffset +
-    idleOffsetX;
+    idleOffsetX +
+    guideOffsetX;
 
                 const fairyWorldX = x;
 
@@ -489,6 +514,22 @@ if (Math.random() < 0.15) {
 
         }
 
+    }
+
+    if (invitation) {
+
+        const rect =
+            invitation.getBoundingClientRect();
+
+        guideMode =
+
+            rect.top <
+            window.innerHeight * 0.6
+
+            &&
+
+            rect.bottom >
+            window.innerHeight * 0.4;
     }
 
 });
