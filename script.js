@@ -213,7 +213,7 @@ if (livingLight) {
     let fairyVelocityY = 0;
     
     let returningHome = false;
-    let invitationInfluence = 0;
+    
     
     function animateLight() {
 
@@ -374,6 +374,8 @@ fairyWorldY +=
 const idleOffsetX =
 
     Math.sin(t * 0.4) * 25;
+
+
 
 const x =
 
