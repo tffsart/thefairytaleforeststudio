@@ -224,18 +224,7 @@ if (livingLight) {
 
                 initialized = true;
             }
-            if (returningHome) {
-
-    targetWorldY =
-        window.innerHeight * 0.35;
-
-} else {
-
-    targetWorldY =
-        window.scrollY +
-        window.innerHeight * 0.45;
-
-}
+            
 
             let targetWorldY;
 
@@ -243,16 +232,6 @@ if (returningHome) {
 
     targetWorldY =
         window.innerHeight * 0.35;
-
-} else if (gateMode) {
-
-    const gateRect =
-        forestGate.getBoundingClientRect();
-
-    targetWorldY =
-        window.scrollY +
-        gateRect.top +
-        gateRect.height * 0.5;
 
 } else {
 
