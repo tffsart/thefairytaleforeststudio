@@ -402,7 +402,17 @@ const x =
             livingLight.style.top =
                 `${y}px`;
 
-            if (true) {
+            if (
+
+    Math.abs(
+        fairyVelocityY
+    ) > 1
+
+    &&
+
+    Math.random() < 0.08
+
+) {
 
     const trail =
         document.createElement("div");
@@ -411,10 +421,10 @@ const x =
         "light-trail";
 
     trail.style.left =
-`${x + 16}px`;
+        `${x + 16}px`;
 
-trail.style.top =
-`${fairyWorldY + (y - screenY) + 16}px`;
+    trail.style.top =
+        `${fairyWorldY + (y - screenY) + 16}px`;
 
     document.body.appendChild(
         trail
@@ -440,7 +450,7 @@ if (Math.random() < 0.15) {
         `${x + (Math.random() * 20 - 10)}px`;
 
     dust.style.top =
-        `${y + 10}px`;
+`${fairyWorldY + 10}px`;
 
     document.body.appendChild(
         dust

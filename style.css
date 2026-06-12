@@ -43,18 +43,10 @@ body {
     transition:
         opacity .6s ease;
 
-    filter:
-   
+        
 
-    drop-shadow(
-        0 0 8px rgba(245,213,139,.9)
-    )
-    drop-shadow(
-        0 0 18px rgba(245,213,139,.7)
-    )
-    drop-shadow(
-        0 0 35px rgba(245,213,139,.4)
-    );    
+    animation:
+    fairySparkle 2.5s ease-in-out infinite;
 }
 
 /* =====================================
@@ -1008,7 +1000,7 @@ nav a:hover {
 
 .fairy-dust {
 
-    position: fixed;
+    position: absolute;
 
     width: 1px;
     height: 1px;
@@ -1049,6 +1041,33 @@ nav a:hover {
                 calc(
                     (var(--drift, 0) * 1px)
                 )
+            );
+    }
+}
+
+@keyframes fairySparkle {
+
+    0%,100% {
+
+        filter:
+            brightness(1)
+            drop-shadow(
+                0 0 2px rgba(245,213,139,.5)
+            )
+            drop-shadow(
+                0 0 6px rgba(245,213,139,.3)
+            );
+    }
+
+    50% {
+
+        filter:
+            brightness(1.35)
+            drop-shadow(
+                0 0 6px rgba(245,213,139,.9)
+            )
+            drop-shadow(
+                0 0 16px rgba(245,213,139,.6)
             );
     }
 }
