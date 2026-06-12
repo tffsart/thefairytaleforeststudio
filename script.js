@@ -217,6 +217,7 @@ if (livingLight) {
     let guideReaction = 0;
     let previousGuideMode = false;
     let guidePause = 0;
+    let guideFreeze = 0;
     
     function animateLight() {
 
@@ -234,6 +235,11 @@ if (livingLight) {
 if (guidePause > 0) {
 
     guidePause--;
+}
+
+if (guideFreeze > 0) {
+
+    guideFreeze--;
 }
 
             if (!initialized) {
@@ -363,9 +369,11 @@ fairyVelocityY *=
 
     fairyFriction;
 
-fairyWorldY +=
+if (guideFreeze <= 0) {
 
-    fairyVelocityY;
+    fairyWorldY +=
+        fairyVelocityY;
+}
 
     if (
     returningHome &&
@@ -403,6 +411,14 @@ fairyWorldY +=
 }
 
 const idleOffsetX =
+
+    guideFreeze > 0
+
+    ?
+
+    0
+
+    :
 
     Math.sin(t * 0.4) * 25;
 
@@ -573,6 +589,7 @@ if (
 
     guideReaction = 50;
 guidePause = 100;
+guideFreeze = 40;
 
 rememberedTargetY = -99999;
 }
