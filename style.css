@@ -44,6 +44,8 @@ body {
         opacity .6s ease;
 
     filter:
+   
+
     drop-shadow(
         0 0 8px rgba(245,213,139,.9)
     )
@@ -967,16 +969,16 @@ nav a:hover {
 
     position: absolute;
 
-    width: 8px;
-    height: 8px;
+    width: 4px;
+    height: 4px;
 
     border-radius: 50%;
 
     background: rgba(245,213,139,.9);
 
     box-shadow:
-        0 0 8px rgba(245,213,139,.8),
-        0 0 20px rgba(245,213,139,.6);
+        0 0 4px rgba(245,213,139,.8),
+        0 0 10px rgba(245,213,139,.6);
 
     pointer-events: none;
 
