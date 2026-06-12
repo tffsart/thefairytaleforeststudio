@@ -216,6 +216,7 @@ if (livingLight) {
     let guideMode = false;
     let guideReaction = 0;
     let previousGuideMode = false;
+    let guidePause = 0;
     
     function animateLight() {
 
@@ -227,7 +228,12 @@ if (livingLight) {
 
             if (guideReaction > 0) {
 
-                guideReaction--;
+    guideReaction--;
+}
+
+if (guidePause > 0) {
+
+    guidePause--;
 }
 
             if (!initialized) {
@@ -251,7 +257,10 @@ if (returningHome) {
     targetWorldY =
         window.innerHeight * 0.35;
 
-} else if (guideMode) {
+} else if (
+    guideMode &&
+    guidePause <= 0
+) {
 
     const invitationRect =
         invitation.getBoundingClientRect();
@@ -557,6 +566,7 @@ if (
 ) {
 
     guideReaction = 50;
+    guidePause = 40;
 }
 
 guideMode =
