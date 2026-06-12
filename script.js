@@ -189,31 +189,13 @@ const forestPath =
 const forestGate =
     document.querySelector(".forest-gate");   
 
-    const invitation =
-    document.querySelector(
-        ".forest-invitation"
-    );    
+       
 
 if (livingLight) {
 
     let visible = false;
 
-    if (invitation) {
-
-    const rect =
-        invitation.getBoundingClientRect();
-
-    invitationMode =
-
-        rect.top <
-        window.innerHeight * 0.65
-
-        &&
-
-        rect.bottom >
-        window.innerHeight * 0.35;
-
-}
+    
 
     let t = 0;
 
@@ -227,7 +209,7 @@ if (livingLight) {
     let fairyVelocityY = 0;
     
     let returningHome = false;
-    let invitationMode = false;
+    
     function animateLight() {
 
         if (visible) {
@@ -254,19 +236,6 @@ if (returningHome) {
 
     targetWorldY =
         window.innerHeight * 0.35;
-
-} else if (
-    invitationMode &&
-    invitation
-) {
-
-    const rect =
-        invitation.getBoundingClientRect();
-
-    targetWorldY =
-        window.scrollY +
-        rect.top +
-        rect.height * 0.5;
 
 } else {
 
