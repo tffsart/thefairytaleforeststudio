@@ -24,8 +24,8 @@ body {
 
     position: fixed;
 
-    width: 48px;
-    height: 48px;
+    width: 32px;
+    height: 32px;
 
     background-image:
         url("assets/tinysnowflake1.png");
@@ -969,8 +969,8 @@ nav a:hover {
 
     position: absolute;
 
-    width: 18px;
-    height: 18px;
+    width: 10px;
+    height: 10px;
 
     background-image:
         url("assets/tinysnowflake1.png");
@@ -1010,15 +1010,15 @@ nav a:hover {
 
     position: fixed;
 
-    width: 6px;
-    height: 6px;
+    width: 1px;
+    height: 1px;
 
     border-radius: 50%;
 
     background: rgba(245,213,139,.8);
 
     box-shadow:
-        0 0 6px rgba(245,213,139,.8);
+        0 0 3px rgba(245,213,139,.8);
 
     pointer-events: none;
 

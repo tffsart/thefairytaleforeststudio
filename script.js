@@ -411,10 +411,10 @@ const x =
         "light-trail";
 
     trail.style.left =
-    `${x + 5}px`;
+`${x + 16}px`;
 
 trail.style.top =
-    `${fairyWorldY + (y - screenY) + 5}px`;
+`${fairyWorldY + (y - screenY) + 16}px`;
 
     document.body.appendChild(
         trail
