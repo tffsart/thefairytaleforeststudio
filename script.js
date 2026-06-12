@@ -218,7 +218,7 @@ if (livingLight) {
     let previousGuideMode = false;
     let guidePause = 0;
     let guideFreeze = 0;
-    
+    let guideState = "idle";
     function animateLight() {
 
         if (visible) {
@@ -232,9 +232,38 @@ if (livingLight) {
     guideReaction--;
 }
 
-if (guidePause > 0) {
+if (guideState === "freeze") {
+
+    guideFreeze--;
+
+    if (guideFreeze <= 0) {
+
+        guideState = "react";
+
+        guideReaction = 50;
+    }
+}
+
+if (guideState === "react") {
+
+    guideReaction--;
+
+    if (guideReaction <= 0) {
+
+        guideState = "pause";
+
+        guidePause = 100;
+    }
+}
+
+if (guideState === "pause") {
 
     guidePause--;
+
+    if (guidePause <= 0) {
+
+        guideState = "fly";
+    }
 }
 
 if (guideFreeze > 0) {
@@ -265,7 +294,7 @@ if (returningHome) {
 
 } else if (
     guideMode &&
-    guidePause <= 0
+guideState === "fly"
 ) {
 
     const invitationRect =
@@ -369,7 +398,19 @@ fairyVelocityY *=
 
     fairyFriction;
 
-if (guideFreeze <= 0) {
+if (
+
+    guideState !== "freeze"
+
+    &&
+
+    guideState !== "react"
+
+    &&
+
+    guideState !== "pause"
+
+) {
 
     fairyWorldY +=
         fairyVelocityY;
@@ -443,7 +484,7 @@ if (guideMode) {
 
 const reactionOffset =
 
-    guideReaction > 0
+    guideState === "react"
 
     ?
 
@@ -587,9 +628,11 @@ if (
     newGuideMode
 ) {
 
-    guideReaction = 50;
-guidePause = 100;
-guideFreeze = 40;
+    guideState = "freeze";
+
+guideReaction = 0;
+guidePause = 0;
+guideFreeze = 30;
 
 rememberedTargetY = -99999;
 }
