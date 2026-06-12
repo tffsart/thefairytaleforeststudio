@@ -189,6 +189,10 @@ const forestPath =
 const forestGate =
     document.querySelector(".forest-gate");   
 
+const invitation =
+    document.querySelector(
+        ".forest-invitation"
+    );
        
 
 if (livingLight) {
@@ -209,6 +213,7 @@ if (livingLight) {
     let fairyVelocityY = 0;
     
     let returningHome = false;
+    let invitationInfluence = 0;
     
     function animateLight() {
 
