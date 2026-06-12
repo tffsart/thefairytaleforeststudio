@@ -222,6 +222,8 @@ if (livingLight) {
     let princessMode = false;
     let princessTransition = 0;
 
+    let returnTransform = false;
+
     function animateLight() {
 
         if (visible) {
@@ -521,19 +523,29 @@ const x =
     if (
         princessTransition > 1
     ) {
-
         princessTransition = 1;
     }
 
-} else {
+}
 
-    princessTransition -= 0.03;
+else if (
+
+    returnTransform
+    &&
+
+    Math.abs(fairyVelocityY) > 1
+
+) {
+
+    princessTransition -= 0.015;
 
     if (
-        princessTransition < 0
+        princessTransition <= 0
     ) {
 
         princessTransition = 0;
+
+        returnTransform = false;
     }
 }
 
@@ -567,8 +579,10 @@ princessMode =
 
 livingLight.style.filter =
 
-    `brightness(${1 + princessTransition * 0.8})
-     drop-shadow(0 0 ${8 + princessTransition * 30}px rgba(245,213,139,.9))`;
+`brightness(${1 + princessTransition * 1.5})
+ drop-shadow(0 0 ${12 + princessTransition * 60}px rgba(245,213,139,.95))
+ drop-shadow(0 0 ${25 + princessTransition * 120}px rgba(245,213,139,.8))
+ drop-shadow(0 0 ${40 + princessTransition * 180}px rgba(245,213,139,.6))`;
             
                 livingLight.style.left =
                 `${x}px`;
@@ -618,7 +632,7 @@ if (
 
     (
         0.15 +
-        princessTransition * 0.35
+        princessTransition * 0.8
     )
 
 ) {
@@ -701,6 +715,18 @@ guidePause = 0;
 guideFreeze = 30;
 
 rememberedTargetY = -99999;
+}
+
+if (
+
+    previousGuideMode
+    &&
+
+    !newGuideMode
+
+) {
+
+    returnTransform = true;
 }
 
 guideMode =
