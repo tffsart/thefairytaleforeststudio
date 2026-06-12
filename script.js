@@ -205,6 +205,7 @@ if (livingLight) {
     let fairyVelocityY = 0;
     
     let returningHome = false;
+    let gateMode = false;
     function animateLight() {
 
         if (visible) {
@@ -223,6 +224,19 @@ if (livingLight) {
 
                 initialized = true;
             }
+            if (
+    forestGate &&
+    forestGate.getBoundingClientRect().top <
+        window.innerHeight * 0.6
+) {
+
+    gateMode = true;
+
+} else {
+
+    gateMode = false;
+
+}
 
             let targetWorldY;
 
@@ -230,6 +244,16 @@ if (returningHome) {
 
     targetWorldY =
         window.innerHeight * 0.35;
+
+} else if (gateMode) {
+
+    const gateRect =
+        forestGate.getBoundingClientRect();
+
+    targetWorldY =
+        window.scrollY +
+        gateRect.top +
+        gateRect.height * 0.5;
 
 } else {
 
