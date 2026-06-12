@@ -214,6 +214,8 @@ if (livingLight) {
     
     let returningHome = false;
     let guideMode = false;
+    let guideReaction = 0;
+    let previousGuideMode = false;
     
     function animateLight() {
 
@@ -222,6 +224,11 @@ if (livingLight) {
             
 
             t += 0.02;
+
+            if (guideReaction > 0) {
+
+                guideReaction--;
+}
 
             if (!initialized) {
 
@@ -403,12 +410,25 @@ if (guideMode) {
 }
 
 
+const reactionOffset =
+
+    guideReaction > 0
+
+    ?
+
+    Math.sin(t * 25) * 20
+
+    :
+
+    0;
+
 const x =
 
     window.innerWidth * 0.5 +
     zigzagOffset +
     idleOffsetX +
-    guideOffsetX;
+    guideOffsetX +
+    reactionOffset;
 
                 const fairyWorldX = x;
 
@@ -521,15 +541,29 @@ if (Math.random() < 0.15) {
         const rect =
             invitation.getBoundingClientRect();
 
-        guideMode =
+        const newGuideMode =
 
-            rect.top <
-            window.innerHeight * 0.6
+    rect.top <
+    window.innerHeight * 0.6
 
-            &&
+    &&
 
-            rect.bottom >
-            window.innerHeight * 0.4;
+    rect.bottom >
+    window.innerHeight * 0.4;
+
+if (
+    !previousGuideMode &&
+    newGuideMode
+) {
+
+    guideReaction = 50;
+}
+
+guideMode =
+    newGuideMode;
+
+previousGuideMode =
+    newGuideMode;
     }
 
 });
