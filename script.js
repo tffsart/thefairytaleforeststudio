@@ -266,9 +266,8 @@ if (returningHome) {
         invitation.getBoundingClientRect();
 
     targetWorldY =
-        window.scrollY +
-        invitationRect.top +
-        invitationRect.height * 0.5;
+    window.scrollY +
+    invitationRect.top;
 
 } else {
 
@@ -414,8 +413,10 @@ if (guideMode) {
         invitationRect.width * 0.5;
 
     guideOffsetX =
+    (
         invitationCenterX -
-        window.innerWidth * 0.5;
+        window.innerWidth * 0.5
+    ) * 0.9;
 }
 
 
@@ -566,7 +567,9 @@ if (
 ) {
 
     guideReaction = 50;
-    guidePause = 40;
+guidePause = 40;
+
+rememberedTargetY = -99999;
 }
 
 guideMode =
