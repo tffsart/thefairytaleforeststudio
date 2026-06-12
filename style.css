@@ -23,26 +23,36 @@ body {
 #living-light {
 
     position: fixed;
-    
-    width: 18px;
-    height: 18px;
 
-    border-radius: 50%;
+    width: 48px;
+    height: 48px;
 
-    background: #f5d58b;
+    background-image:
+        url("assets/tinysnowflake1.png");
 
-    box-shadow:
-        0 0 15px rgba(245,213,139,.95),
-        0 0 35px rgba(245,213,139,.8),
-        0 0 80px rgba(245,213,139,.5);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 
     z-index: 99999;
 
     pointer-events: none;
 
     opacity: 0;
+
     transition:
-    opacity .6s ease;
+        opacity .6s ease;
+
+    filter:
+    drop-shadow(
+        0 0 8px rgba(245,213,139,.9)
+    )
+    drop-shadow(
+        0 0 18px rgba(245,213,139,.7)
+    )
+    drop-shadow(
+        0 0 35px rgba(245,213,139,.4)
+    );    
 }
 
 /* =====================================
