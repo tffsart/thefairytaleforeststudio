@@ -575,14 +575,20 @@ princessMode =
 
     livingLight.style.transform =
 
-    `scale(${1 + princessTransition * 0.35})`;
+`scale(${
+    1 +
+    princessTransition * 0.65 +
+    Math.sin(
+        princessTransition * Math.PI
+    ) * 0.35
+})`;
 
 livingLight.style.filter =
 
-`brightness(${1 + princessTransition * 1.5})
- drop-shadow(0 0 ${12 + princessTransition * 60}px rgba(245,213,139,.95))
- drop-shadow(0 0 ${25 + princessTransition * 120}px rgba(245,213,139,.8))
- drop-shadow(0 0 ${40 + princessTransition * 180}px rgba(245,213,139,.6))`;
+`brightness(${1 + princessTransition * 2.2})
+ drop-shadow(0 0 ${20 + princessTransition * 100}px rgba(245,213,139,.95))
+ drop-shadow(0 0 ${40 + princessTransition * 200}px rgba(245,213,139,.8))
+ drop-shadow(0 0 ${80 + princessTransition * 300}px rgba(245,213,139,.6))`;
             
                 livingLight.style.left =
                 `${x}px`;
@@ -632,7 +638,7 @@ if (
 
     (
         0.15 +
-        princessTransition * 0.8
+        princessTransition * 1.5
     )
 
 ) {
