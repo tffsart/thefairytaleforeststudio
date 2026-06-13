@@ -637,18 +637,18 @@ else if (
 
 ) {
 
+    princessActive = false;
+
     princessTransition -= 0.015;
 
     if (
-    princessTransition <= 0
-) {
+        princessTransition <= 0
+    ) {
 
-    princessTransition = 0;
+        princessTransition = 0;
 
-    returnTransform = false;
-
-    princessActive = false;
-}
+        returnTransform = false;
+    }
 }
 
 princessMode =
@@ -835,8 +835,6 @@ if (
 ) {
 
     returnTransform = true;
-
-    princessActive = false;
 }
 
 guideMode =
