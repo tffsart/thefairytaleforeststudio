@@ -818,19 +818,24 @@ if (
     window.innerHeight * 0.5
 ) {
 
-        visible = true;
+    visible = true;
 
-        livingLight.style.opacity = "1";
+    livingLight.style.opacity = "1";
 
-    } else {
+}
 
-        if (visible) {
+if (
+    window.scrollY <
+    window.innerHeight * 0.1
+) {
 
-            returningHome = true;
+    if (visible) {
 
-        }
+        returningHome = true;
 
     }
+
+}
 
     if (invitation) {
 
