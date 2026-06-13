@@ -353,11 +353,7 @@ if (returningHome) {
 
 } else if (
 
-    (
-        guideMode
-        ||
-        princessActive
-    )
+    guideMode
 
     &&
 
@@ -839,6 +835,8 @@ if (
 ) {
 
     returnTransform = true;
+
+    princessActive = false;
 }
 
 guideMode =
