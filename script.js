@@ -223,6 +223,7 @@ if (livingLight) {
     let princessTransition = 0;
 
     let princessOrbit = 0;
+    let princessBaseOffsetX = 0;
     let princessDirection = 1;
     let princessTargetOffset = 260;
     let princessWait = 0;
@@ -564,14 +565,11 @@ if (
 
         guideOffsetX =
 
-            (
-                invitationCenterX -
-                window.innerWidth * 0.5
-            )
+    princessBaseOffsetX
 
-            +
+    +
 
-            princessOrbit;
+    princessOrbit;
 
     } else {
 
@@ -616,6 +614,20 @@ const x =
 ) {
 
     princessActive = true;
+
+    const invitationRect =
+        invitation.getBoundingClientRect();
+
+    princessBaseOffsetX =
+
+        (
+            invitationRect.left +
+            invitationRect.width * 0.5
+        )
+
+        -
+
+        window.innerWidth * 0.5;
 
     princessTransition += 0.015;
 
