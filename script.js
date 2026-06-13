@@ -239,7 +239,7 @@ if (livingLight) {
             t += 0.02;
             if (
 
-    princessTransition > 0.95
+    princessTransition >= 1
 
 ) {
 
@@ -560,7 +560,7 @@ if (
         invitationRect.left +
         invitationRect.width * 0.5;
 
-    if (princessTransition > 0.95) {
+    if (princessTransition > 0.99) {
 
         guideOffsetX =
 
