@@ -228,7 +228,8 @@ if (livingLight) {
     let princessWait = 0;
 
     let returnTransform = false;
-
+    let princessActive = false;
+    
     function animateLight() {
 
         if (visible) {
@@ -327,10 +328,7 @@ if (guideState === "pause") {
     }
 }
 
-if (guideFreeze > 0) {
 
-    guideFreeze--;
-}
 
             if (!initialized) {
 
@@ -354,32 +352,35 @@ if (returningHome) {
         window.innerHeight * 0.35;
 
 } else if (
-    guideMode &&
-guideState === "fly"
+
+    (
+        guideMode
+        ||
+        princessActive
+    )
+
+    &&
+
+    guideState === "fly"
+
 ) {
 
     const invitationRect =
         invitation.getBoundingClientRect();
 
     targetWorldY =
-    window.scrollY +
-    invitationRect.top +
+        window.scrollY +
+        invitationRect.top +
 
-    (
-
-        princessTransition > 0.95
-
-        ?
-
-        Math.sin(
-    princessOrbit * 0.03
-) * 18
-
-        :
-
-        0
-
-    );
+        (
+            princessTransition > 0.95
+            ?
+            Math.sin(
+                princessOrbit * 0.03
+            ) * 18
+            :
+            0
+        );
 
 } else {
 
@@ -546,7 +547,15 @@ const idleOffsetX =
 
     let guideOffsetX = 0;
 
-if (guideMode) {
+if (
+
+    guideMode
+
+    ||
+
+    princessActive
+
+) {
 
     const invitationRect =
         invitation.getBoundingClientRect();
@@ -610,11 +619,14 @@ const x =
 
 ) {
 
+    princessActive = true;
+
     princessTransition += 0.015;
 
     if (
         princessTransition > 1
     ) {
+
         princessTransition = 1;
     }
 
@@ -632,13 +644,15 @@ else if (
     princessTransition -= 0.015;
 
     if (
-        princessTransition <= 0
-    ) {
+    princessTransition <= 0
+) {
 
-        princessTransition = 0;
+    princessTransition = 0;
 
-        returnTransform = false;
-    }
+    returnTransform = false;
+
+    princessActive = false;
+}
 }
 
 princessMode =
