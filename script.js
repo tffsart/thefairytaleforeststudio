@@ -203,7 +203,8 @@ if (livingLight) {
 
     let t = 0;
 
-    let fairyWorldY = 0;
+    let fairyWorldY =
+    window.innerHeight * 0.35;
 
     let initialized = false;
     let lastScrollY = window.scrollY;
@@ -356,16 +357,11 @@ if (guideState === "pause") {
 
             if (!initialized) {
 
-                fairyWorldY =
-                    window.scrollY +
-                    window.innerHeight * 0.35;
+    rememberedTargetY =
+        fairyWorldY;
 
-                    rememberedTargetY =
-                    fairyWorldY;
-                    
-
-                initialized = true;
-            }
+    initialized = true;
+}
             
 
             let targetWorldY;
