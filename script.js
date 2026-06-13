@@ -222,6 +222,8 @@ if (livingLight) {
     let princessMode = false;
     let princessTransition = 0;
 
+    let princessOrbit = 0;
+
     let returnTransform = false;
 
     function animateLight() {
@@ -231,7 +233,7 @@ if (livingLight) {
             
 
             t += 0.02;
-
+            princessOrbit += 0.03;
             
 
 if (guideState === "freeze") {
@@ -304,7 +306,23 @@ guideState === "fly"
 
     targetWorldY =
     window.scrollY +
-    invitationRect.top;
+    invitationRect.top +
+
+    (
+
+        princessTransition > 0.95
+
+        ?
+
+        Math.cos(
+            princessOrbit * 2
+        ) * 25
+
+        :
+
+        0
+
+    );
 
 } else {
 
@@ -480,11 +498,30 @@ if (guideMode) {
         invitationRect.left +
         invitationRect.width * 0.5;
 
-    guideOffsetX =
-    (
-        invitationCenterX -
-        window.innerWidth * 0.5
-    ) * 0.9;
+    if (princessTransition > 0.95) {
+
+        guideOffsetX =
+
+            (
+                invitationCenterX -
+                window.innerWidth * 0.5
+            )
+
+            +
+
+            Math.sin(
+                princessOrbit
+            ) * 120;
+
+    } else {
+
+        guideOffsetX =
+
+            (
+                invitationCenterX -
+                window.innerWidth * 0.5
+            ) * 0.9;
+    }
 }
 
 
