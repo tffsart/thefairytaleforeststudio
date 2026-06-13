@@ -227,6 +227,7 @@ if (livingLight) {
     let princessDirection = 1;
     let princessTargetOffset = 260;
     let princessWait = 0;
+    let princessPoint = 0;
 
     let returnTransform = false;
     let princessActive = false;
@@ -244,6 +245,22 @@ if (livingLight) {
 
 ) {
 
+    const princessTargets = [
+
+        -260,
+
+        0,
+
+        260
+
+    ];
+
+    const targetOrbit =
+
+        princessTargets[
+            princessPoint
+        ];
+
     if (
 
         princessWait > 0
@@ -254,42 +271,48 @@ if (livingLight) {
 
     } else {
 
+        const orbitDirection =
+
+            Math.sign(
+                targetOrbit -
+                princessOrbit
+            );
+
         princessOrbit +=
 
-    princessDirection * 3.5;
+            orbitDirection * 4;
 
         if (
 
-            princessOrbit >
-            princessTargetOffset
+            Math.abs(
+                princessOrbit -
+                targetOrbit
+            ) < 8
 
         ) {
 
             princessOrbit =
-                princessTargetOffset;
+                targetOrbit;
 
-            princessDirection =
-                -1;
+            if (
+                princessPoint === 2
+            ) {
 
-            princessWait =
-                40;
-        }
+                princessWait = 80;
 
-        if (
+            } else {
 
-            princessOrbit <
-            -princessTargetOffset
+                princessWait = 40;
+            }
 
-        ) {
+            princessPoint++;
 
-            princessOrbit =
-                -princessTargetOffset;
+            if (
+                princessPoint > 2
+            ) {
 
-            princessDirection =
-                1;
-
-            princessWait =
-                40;
+                princessPoint = 0;
+            }
         }
     }
 }
