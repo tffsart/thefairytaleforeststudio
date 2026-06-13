@@ -223,6 +223,9 @@ if (livingLight) {
     let princessTransition = 0;
 
     let princessOrbit = 0;
+    let princessDirection = 1;
+    let princessTargetOffset = 120;
+    let princessWait = 0;
 
     let returnTransform = false;
 
@@ -233,7 +236,61 @@ if (livingLight) {
             
 
             t += 0.02;
-            princessOrbit += 0.03;
+            if (
+
+    princessTransition > 0.95
+
+) {
+
+    if (
+
+        princessWait > 0
+
+    ) {
+
+        princessWait--;
+
+    } else {
+
+        princessOrbit +=
+
+            princessDirection * 2;
+
+        if (
+
+            princessOrbit >
+            princessTargetOffset
+
+        ) {
+
+            princessOrbit =
+                princessTargetOffset;
+
+            princessDirection =
+                -1;
+
+            princessWait =
+                40;
+        }
+
+        if (
+
+            princessOrbit <
+            -princessTargetOffset
+
+        ) {
+
+            princessOrbit =
+                -princessTargetOffset;
+
+            princessDirection =
+                1;
+
+            princessWait =
+                40;
+        }
+    }
+}
             
 
 if (guideState === "freeze") {
@@ -314,9 +371,9 @@ guideState === "fly"
 
         ?
 
-        Math.cos(
-            princessOrbit * 2
-        ) * 25
+        Math.sin(
+    princessOrbit * 0.03
+) * 18
 
         :
 
@@ -509,9 +566,7 @@ if (guideMode) {
 
             +
 
-            Math.sin(
-                princessOrbit
-            ) * 120;
+            princessOrbit;
 
     } else {
 
