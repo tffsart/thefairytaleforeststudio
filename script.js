@@ -815,7 +815,7 @@ if (
 
     if (
     window.scrollY >
-    window.innerHeight * 0.6
+    window.innerHeight * 0.5
 ) {
 
         visible = true;
