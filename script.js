@@ -818,8 +818,9 @@ if (
     window.addEventListener("scroll", () => {
 
     if (
-        window.scrollY > 50
-    ) {
+    window.scrollY >
+    window.innerHeight * 0.8
+) {
 
         visible = true;
 
