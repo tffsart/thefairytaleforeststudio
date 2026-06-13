@@ -561,25 +561,29 @@ if (
         invitationRect.left +
         invitationRect.width * 0.5;
 
-    if (princessTransition > 0.99) {
+    const normalOffset =
 
-        guideOffsetX =
+    (
+        invitationCenterX -
+        window.innerWidth * 0.5
+    ) * 0.9;
 
-    princessBaseOffsetX
+const princessOffset =
+
+    princessBaseOffsetX +
+    princessOrbit;
+
+guideOffsetX =
+
+    normalOffset *
+
+    (1 - princessTransition)
 
     +
 
-    princessOrbit;
+    princessOffset *
 
-    } else {
-
-        guideOffsetX =
-
-            (
-                invitationCenterX -
-                window.innerWidth * 0.5
-            ) * 0.9;
-    }
+    princessTransition;
 }
 
 
