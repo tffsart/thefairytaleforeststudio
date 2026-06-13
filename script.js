@@ -234,7 +234,7 @@ if (livingLight) {
     
     function animateLight() {
 
-        if (visible) {
+        if (initialized || visible) {
 
             
 
