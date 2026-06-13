@@ -224,7 +224,7 @@ if (livingLight) {
 
     let princessOrbit = 0;
     let princessDirection = 1;
-    let princessTargetOffset = 120;
+    let princessTargetOffset = 260;
     let princessWait = 0;
 
     let returnTransform = false;
@@ -254,7 +254,7 @@ if (livingLight) {
 
         princessOrbit +=
 
-            princessDirection * 2;
+    princessDirection * 3.5;
 
         if (
 
