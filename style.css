@@ -442,7 +442,11 @@ nav a:hover {
     background-repeat: no-repeat;
     background-position: center;
 
-    opacity: .12;
+    opacity: .45;
+
+    filter:
+    brightness(3)
+    contrast(2);
 
     pointer-events: none;
 
