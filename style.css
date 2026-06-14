@@ -1115,7 +1115,13 @@ nav a:hover {
 
     position: relative;
 
-    font-size: 2rem;
+    max-width: 420px;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 4rem;
+
+    line-height: 1.2;
 
     color: #f4e2b0;
 
@@ -1205,13 +1211,13 @@ nav a:hover {
 
     position: absolute;
 
-    top: 12vh;
+    top: 18vh;
 
     left: 50%;
 
     transform: translateX(-50%);
 
-    width: min(1200px, 90vw);
+    width: min(1400px, 92vw);
 
     display: flex;
 
@@ -1219,7 +1225,7 @@ nav a:hover {
 
     align-items: center;
 
-    gap: 120px;
+    gap: 180px;
 
     z-index: 30;
 }
@@ -1242,6 +1248,6 @@ nav a:hover {
 
     width: 100%;
 
-    max-width: 500px;
+    max-width: 650px;
 }
 
