@@ -1236,7 +1236,11 @@ nav a:hover {
 
     position: absolute;
 
-    border-top: 2px solid rgba(245,213,139,.85);
+    border: 2px solid rgba(245,213,139,.85);
+
+    border-left: none;
+
+    border-bottom: none;
 
     border-radius: 999px;
 
@@ -1246,7 +1250,7 @@ nav a:hover {
 .wind-1 {
 
     width: 120px;
-    height: 50px;
+    height: 60px;
 
     left: 0;
     top: 40px;
@@ -1254,7 +1258,7 @@ nav a:hover {
 
 .wind-2 {
 
-    width: 90px;
+    width: 80px;
     height: 40px;
 
     left: 60px;
@@ -1263,8 +1267,8 @@ nav a:hover {
 
 .wind-3 {
 
-    width: 70px;
-    height: 30px;
+    width: 50px;
+    height: 25px;
 
     left: 130px;
     top: 55px;
