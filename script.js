@@ -827,7 +827,7 @@ if (
         
         if (
     forestTransition &&
-    magicSweep &&
+    transitionSpirit &&
     transitionQuote &&
     !transitionPlayed
 ) {
