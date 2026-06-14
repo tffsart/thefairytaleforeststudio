@@ -888,3 +888,21 @@ previousGuideMode =
 });
 
 }
+
+
+
+magicSweep.classList.add("active");
+quote.classList.add("active");
+
+@keyframes sweepAcross {
+
+    from {
+
+        left: -300px;
+    }
+
+    to {
+
+        left: calc(100% + 300px);
+    }
+}
