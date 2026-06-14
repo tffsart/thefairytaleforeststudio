@@ -194,14 +194,16 @@ const invitation =
         ".forest-invitation"
     );
 
-const magicSweep =
-    document.querySelector(
-        ".magic-sweep"
-    );
+
 
 const transitionQuote =
     document.querySelector(
         ".transition-quote"
+    );
+
+const transitionSpirit =
+    document.querySelector(
+        ".transition-spirit"
     );    
        
 
@@ -843,13 +845,19 @@ if (
 
         transitionPlayed = true;
 
-        magicSweep.classList.add(
-            "active"
-        );
+        
 
-        transitionQuote.classList.add(
-            "active"
-        );
+        transitionSpirit.classList.add(
+    "active"
+);
+
+setTimeout(() => {
+
+    transitionQuote.classList.add(
+        "active"
+    );
+
+}, 1800);
     }
 }
 

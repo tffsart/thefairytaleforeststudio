@@ -1115,7 +1115,7 @@ nav a:hover {
 
     position: absolute;
 
-    left: 50%;
+    left: 30%;
     top: 50%;
 
     transform:
@@ -1136,32 +1136,72 @@ nav a:hover {
         filter 1.2s ease;
 }
 
-.magic-sweep.active {
+.transition-spirit {
 
-    opacity: 1;
+    position: absolute;
+
+    left: 18%;
+    top: 55%;
+
+    width: 14px;
+    height: 14px;
+
+    border-radius: 50%;
+
+    background: #f5d58b;
+
+    box-shadow:
+        0 0 10px rgba(245,213,139,.9),
+        0 0 25px rgba(245,213,139,.7),
+        0 0 60px rgba(245,213,139,.4);
+
+    opacity: 0;
+
+    z-index: 20;
+}
+
+.transition-spirit.active {
 
     animation:
-        sweepAcross 1.4s ease forwards;
+        spiritFlight 2.5s ease forwards;
 }
 
-.transition-quote.active {
+@keyframes spiritFlight {
 
-    opacity: 1;
+    0% {
 
-    filter: blur(0);
-}
+        opacity: 0;
 
-
-
-@keyframes sweepAcross {
-
-    from {
-
-        left: -300px;
+        transform:
+            translate(0,0)
+            scale(.5);
     }
 
-    to {
+    15% {
 
-        left: calc(100% + 300px);
+        opacity: 1;
+    }
+
+    40% {
+
+        transform:
+            translate(80px,-70px)
+            scale(1.2);
+    }
+
+    70% {
+
+        transform:
+            translate(180px,20px)
+            scale(.9);
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(260px,-10px)
+            scale(.5);
     }
 }
