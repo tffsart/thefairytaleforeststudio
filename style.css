@@ -1113,27 +1113,13 @@ nav a:hover {
 
 .transition-quote {
 
-    position: absolute;
-
-    left: 30%;
-    top: 50%;
-
-    transform:
-        translate(-50%, -50%);
+    position: relative;
 
     font-size: 2rem;
 
     color: #f4e2b0;
 
-    opacity: 0;
-
-    filter: blur(20px);
-
-    transition:
-
-        opacity 1.2s ease,
-
-        filter 1.2s ease;
+    opacity: 1;
 }
 .transition-quote.active {
 
@@ -1215,5 +1201,44 @@ nav a:hover {
 
 
 
+.transition-story {
 
+    position: absolute;
+
+    top: 8vh;
+
+    left: 0;
+    right: 0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 8vw;
+
+    z-index: 30;
+}
+
+.transition-left {
+
+    width: 45%;
+}
+
+.transition-right {
+
+    width: 45%;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+.transition-house {
+
+    width: 100%;
+
+    max-width: 500px;
+}
 
