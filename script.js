@@ -201,10 +201,7 @@ const transitionQuote =
         ".transition-quote"
     );
 
-const windSwirl =
-    document.querySelector(
-        ".wind-swirl"
-    );    
+  
        
 
 if (livingLight) {
@@ -827,7 +824,7 @@ if (
         
         if (
     forestTransition &&
-    windSwirl &&
+    
     transitionQuote &&
     !transitionPlayed
 ) {
@@ -847,9 +844,7 @@ if (
 
         
 
-        windSwirl.classList.add(
-    "active"
-);
+      
 
 setTimeout(() => {
 
