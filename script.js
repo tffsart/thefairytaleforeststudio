@@ -201,9 +201,9 @@ const transitionQuote =
         ".transition-quote"
     );
 
-const transitionSpirit =
+const windSwirl =
     document.querySelector(
-        ".transition-spirit"
+        ".wind-swirl"
     );    
        
 
@@ -827,7 +827,7 @@ if (
         
         if (
     forestTransition &&
-    transitionSpirit &&
+    windSwirl &&
     transitionQuote &&
     !transitionPlayed
 ) {
@@ -847,7 +847,7 @@ if (
 
         
 
-        transitionSpirit.classList.add(
+        windSwirl.classList.add(
     "active"
 );
 
