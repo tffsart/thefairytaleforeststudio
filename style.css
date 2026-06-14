@@ -428,14 +428,21 @@ nav a:hover {
     position: absolute;
 
     left: 50%;
-    bottom: 12%;
+    bottom: 0;
 
     transform: translateX(-50%);
 
-    width: 140px;
-    height: 220px;
+    width: 700px;
+    height: 700px;
 
-    opacity: .28;
+    background-image:
+        url("assets/ancient-tree.png");
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    opacity: .12;
 
     pointer-events: none;
 
