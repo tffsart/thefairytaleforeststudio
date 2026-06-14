@@ -1205,30 +1205,33 @@ nav a:hover {
 
     position: absolute;
 
-    top: 8vh;
+    top: 12vh;
 
-    left: 0;
-    right: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(1200px, 90vw);
 
     display: flex;
 
-    justify-content: space-between;
+    justify-content: center;
 
     align-items: center;
 
-    padding: 0 8vw;
+    gap: 120px;
 
     z-index: 30;
 }
 
 .transition-left {
 
-    width: 45%;
+    flex: 1;
 }
 
 .transition-right {
 
-    width: 45%;
+    flex: 1;
 
     display: flex;
 
