@@ -193,12 +193,22 @@ const invitation =
     document.querySelector(
         ".forest-invitation"
     );
+
+const magicSweep =
+    document.querySelector(
+        ".magic-sweep"
+    );
+
+const transitionQuote =
+    document.querySelector(
+        ".transition-quote"
+    );    
        
 
 if (livingLight) {
 
     let visible = false;
-
+    let transitionPlayed = false;
     
 
     let t = 0;
@@ -812,6 +822,36 @@ if (
     animateLight();
 
     window.addEventListener("scroll", () => {
+        
+        if (
+    forestTransition &&
+    magicSweep &&
+    transitionQuote &&
+    !transitionPlayed
+) {
+
+    const rect =
+        forestTransition.getBoundingClientRect();
+
+    const center =
+        window.innerHeight * 0.5;
+
+    if (
+        rect.top < center &&
+        rect.bottom > center
+    ) {
+
+        transitionPlayed = true;
+
+        magicSweep.classList.add(
+            "active"
+        );
+
+        transitionQuote.classList.add(
+            "active"
+        );
+    }
+}
 
     if (
     window.scrollY >
@@ -891,18 +931,4 @@ previousGuideMode =
 
 
 
-magicSweep.classList.add("active");
-quote.classList.add("active");
 
-@keyframes sweepAcross {
-
-    from {
-
-        left: -300px;
-    }
-
-    to {
-
-        left: calc(100% + 300px);
-    }
-}
