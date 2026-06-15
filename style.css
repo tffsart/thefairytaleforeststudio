@@ -1129,6 +1129,8 @@ nav a:hover {
     color: #f4e2b0;
 
     opacity: 1;
+    
+    white-space: nowrap;
 }
 .transition-quote.active {
 
@@ -1235,7 +1237,7 @@ nav a:hover {
 
 .transition-left {
 
-    flex: 0 0 520px;
+    flex: 0 0 650px;
 }
 
 .transition-right {
