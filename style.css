@@ -1252,5 +1252,99 @@ nav a:hover {
     width: 100%;
 
     max-width: 325px;
+
+    animation:
+        houseFloat 8s ease-in-out infinite;
 }
 
+@keyframes houseFloat {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(-0.4deg);
+    }
+
+    25% {
+
+        transform:
+            translateY(-4px)
+            rotate(0.2deg);
+    }
+
+    50% {
+
+        transform:
+            translateY(-8px)
+            rotate(0.5deg);
+    }
+
+    75% {
+
+        transform:
+            translateY(-4px)
+            rotate(0deg);
+    }
+
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(-0.4deg);
+    }
+}
+
+.house-stage {
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+.house-stage::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 320px;
+    height: 120px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(245,213,139,.18),
+            rgba(245,213,139,.06),
+            transparent 70%
+        );
+
+    filter: blur(25px);
+
+    z-index: -1;
+
+    animation:
+        houseGlow 8s ease-in-out infinite;
+}
+
+@keyframes houseGlow {
+
+    0%,100% {
+
+        opacity: .5;
+
+        transform: scale(1);
+    }
+
+    50% {
+
+        opacity: .9;
+
+        transform: scale(1.08);
+    }
+}
