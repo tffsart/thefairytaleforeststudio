@@ -1115,9 +1115,7 @@ nav a:hover {
 
     position: relative;
 
-    width: 0;
-
-    max-width: none;
+    width: 100%;
 
     text-align: center;
 
@@ -1128,17 +1126,34 @@ nav a:hover {
     line-height: 1.2;
 
     color: #f4e2b0;
+}
+
+
+.quote-line {
+
+    display: block;
 
     opacity: 0;
 
+    overflow: hidden;
+
     white-space: nowrap;
 
-    overflow: hidden;
+    width: 0;
 }
-.transition-quote.active {
+
+.transition-quote.active .quote-line-1 {
 
     animation:
-        writeQuote 5s steps(70) forwards;
+        writeLine 2s steps(35) forwards;
+}
+
+.transition-quote.active .quote-line-2 {
+
+    animation:
+        writeLine 2s steps(40) forwards;
+
+    animation-delay: 2s;
 }
 
 
@@ -1619,7 +1634,7 @@ transition:
             scaleX(.4);
     }
 }
-@keyframes writeQuote {
+@keyframes writeLine {
 
     from {
 
