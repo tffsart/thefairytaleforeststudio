@@ -1115,7 +1115,8 @@ nav a:hover {
 
     position: relative;
 
-    max-width: 520px;
+    width: 100%;
+    max-width: none;
 
     text-align: center;
 
@@ -1234,7 +1235,7 @@ nav a:hover {
 
 .transition-left {
 
-    flex: 1;
+    flex: 0 0 520px;
 }
 
 .transition-right {
