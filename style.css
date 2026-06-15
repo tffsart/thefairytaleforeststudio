@@ -1253,8 +1253,11 @@ nav a:hover {
 
     max-width: 325px;
 
+    transform-origin: center center;
+
     animation:
-        houseFloat 8s ease-in-out infinite;
+        houseFloat 8s ease-in-out infinite,
+        houseSway 14s ease-in-out infinite;
 }
 
 @keyframes houseFloat {
@@ -1346,5 +1349,34 @@ nav a:hover {
         opacity: .9;
 
         transform: scale(1.08);
+    }
+}
+
+
+@keyframes houseSway {
+
+    0% {
+
+        rotate: -0.8deg;
+    }
+
+    25% {
+
+        rotate: -0.2deg;
+    }
+
+    50% {
+
+        rotate: 0.8deg;
+    }
+
+    75% {
+
+        rotate: 0.2deg;
+    }
+
+    100% {
+
+        rotate: -0.8deg;
     }
 }
