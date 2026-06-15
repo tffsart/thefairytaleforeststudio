@@ -1133,27 +1133,40 @@ nav a:hover {
 
     display: block;
 
-    opacity: 0;
-
-    overflow: hidden;
+    position: relative;
 
     white-space: nowrap;
 
-    width: 0;
+    opacity: 1;
+}
+.quote-line::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background: #050505;
+
+    transform-origin: right center;
 }
 
-.transition-quote.active .quote-line-1 {
+.transition-quote.active .quote-line-1::after {
 
     animation:
-        writeLine 2s steps(35) forwards;
+        revealLine 1.8s ease forwards;
 }
 
-.transition-quote.active .quote-line-2 {
+.transition-quote.active .quote-line-2::after {
 
     animation:
-        writeLine 2s steps(40) forwards;
+        revealLine 1.8s ease forwards;
 
-    animation-delay: 2s;
+    animation-delay: 1.8s;
 }
 
 
@@ -1634,19 +1647,15 @@ transition:
             scaleX(.4);
     }
 }
-@keyframes writeLine {
+@keyframes revealLine {
 
     from {
 
-        width: 0;
-
-        opacity: 1;
+        transform: scaleX(1);
     }
 
     to {
 
-        width: 100%;
-
-        opacity: 1;
+        transform: scaleX(0);
     }
 }
