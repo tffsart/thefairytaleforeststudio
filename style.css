@@ -1380,3 +1380,46 @@ nav a:hover {
         rotate: -0.8deg;
     }
 }
+
+@media (max-width: 768px) {
+
+    .transition-story {
+
+        flex-direction: column;
+
+        gap: 40px;
+
+        width: 90vw;
+
+        top: 10vh;
+    }
+
+    .transition-left {
+
+        flex: unset;
+
+        width: 100%;
+    }
+
+    .transition-right {
+
+        flex: unset;
+
+        width: 100%;
+    }
+
+    .transition-quote {
+
+        font-size: 2.2rem;
+
+        text-align: center;
+
+        max-width: 100%;
+    }
+
+    .transition-house {
+
+        max-width: 220px;
+    }
+
+}
