@@ -1122,7 +1122,7 @@ nav a:hover {
 
     font-family: "Caveat", cursive;
 
-    font-size: 4rem;
+    font-size: 2.8rem;
 
     line-height: 1.2;
 
@@ -1523,5 +1523,76 @@ nav a:hover {
 
         transform:
             scale(1.12);
+    }
+}
+.memory-wind {
+
+    position: absolute;
+
+    left: 38%;
+    top: 46%;
+
+    width: 320px;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(245,213,139,.85),
+            transparent
+        );
+
+    filter: blur(1px);
+
+    opacity: 0;
+
+    transform-origin: left center;
+
+    pointer-events: none;
+
+    z-index: 5;
+}
+.memory-wind.active {
+
+    animation:
+        memoryWindFlow 3s ease forwards;
+}
+@keyframes memoryWindFlow {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateX(-60px)
+            translateY(20px)
+            rotate(-12deg)
+            scaleX(.2);
+    }
+
+    20% {
+
+        opacity: .9;
+    }
+
+    50% {
+
+        transform:
+            translateX(40px)
+            translateY(-10px)
+            rotate(4deg)
+            scaleX(1);
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translateX(180px)
+            translateY(25px)
+            rotate(10deg)
+            scaleX(.4);
     }
 }

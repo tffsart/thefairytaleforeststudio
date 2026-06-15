@@ -842,6 +842,18 @@ if (
 
         transitionPlayed = true;
 
+        const memoryWind =
+    document.querySelector(
+        ".memory-wind"
+    );
+
+if (memoryWind) {
+
+    memoryWind.classList.add(
+        "active"
+    );
+}
+
         
 
       
