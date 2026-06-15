@@ -1426,11 +1426,11 @@ nav a:hover {
 
     position: absolute;
 
-    bottom: -20px;
+    bottom: -30px;
 
-    width: 340px;
+    width: 500px;
 
-    height: 120px;
+    height: 180px;
 
     border-radius: 50%;
 
@@ -1440,16 +1440,16 @@ nav a:hover {
 
             ellipse at center,
 
-            rgba(245,213,139,.18) 0%,
+            rgba(245,213,139,.35) 0%,
 
-            rgba(245,213,139,.08) 40%,
+            rgba(245,213,139,.18) 40%,
 
-            rgba(245,213,139,.03) 65%,
+            rgba(245,213,139,.08) 65%,
 
             transparent 100%
         );
 
-    filter: blur(24px);
+    filter: blur(30px);
 
     animation:
         islandBreath 12s ease-in-out infinite;
