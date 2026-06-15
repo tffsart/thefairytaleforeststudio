@@ -1115,7 +1115,8 @@ nav a:hover {
 
     position: relative;
 
-    width: 100%;
+    width: 0;
+
     max-width: none;
 
     text-align: center;
@@ -1128,16 +1129,16 @@ nav a:hover {
 
     color: #f4e2b0;
 
-    opacity: 1;
-    
+    opacity: 0;
+
     white-space: nowrap;
-    
+
+    overflow: hidden;
 }
 .transition-quote.active {
 
-    opacity: 1;
-
-    filter: blur(0);
+    animation:
+        writeQuote 5s steps(70) forwards;
 }
 
 
@@ -1248,6 +1249,25 @@ nav a:hover {
     display: flex;
 
     justify-content: center;
+
+    opacity: 0;
+
+transform:
+    translateY(30px)
+    scale(.95);
+
+transition:
+    opacity 1.5s ease,
+    transform 1.5s ease;
+}
+
+.transition-right.active {
+
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
 }
 
 .transition-house {
@@ -1597,5 +1617,21 @@ nav a:hover {
             translateY(25px)
             rotate(10deg)
             scaleX(.4);
+    }
+}
+@keyframes writeQuote {
+
+    from {
+
+        width: 0;
+
+        opacity: 1;
+    }
+
+    to {
+
+        width: 100%;
+
+        opacity: 1;
     }
 }

@@ -864,7 +864,20 @@ setTimeout(() => {
         "active"
     );
 
-}, 1800);
+    const transitionRight =
+        document.querySelector(
+            ".transition-right"
+        );
+
+    setTimeout(() => {
+
+        transitionRight.classList.add(
+            "active"
+        );
+
+    }, 5000);
+
+}, 500);
     }
 }
 
