@@ -108,7 +108,7 @@ nav a:hover {
     inset: 0;
 
     background-image:
-        url("assets/forest-master.png");
+        url("assets/forest-master-01.webp");
 
     background-size: cover;
 
@@ -1131,6 +1131,7 @@ nav a:hover {
     opacity: 1;
     
     white-space: nowrap;
+    
 }
 .transition-quote.active {
 
