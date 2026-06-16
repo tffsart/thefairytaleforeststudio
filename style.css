@@ -1158,15 +1158,15 @@ nav a:hover {
 .transition-quote.active .quote-line-1::after {
 
     animation:
-        revealLine 2.6s ease forwards;
+        revealLine 3.2s ease forwards;
 }
 
 .transition-quote.active .quote-line-2::after {
 
     animation:
-        revealLine 2.6s ease forwards;
+        revealLine 3.2s ease forwards;
 
-    animation-delay: 2.6s;
+    animation-delay: 2.1s;
 }
 
 
