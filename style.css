@@ -1403,9 +1403,13 @@ transition:
 
 .transition-house {
 
+    position: relative;
+
+    z-index: 5;
+
     width: 100%;
 
-    max-width: 330px;
+    max-width: 370px;
 
     transform-origin: center center;
 
@@ -1461,7 +1465,35 @@ transition:
     justify-content: center;
 
     align-items: center;
+
+    width: 520px;
+
+    height: 420px;
 }
+.house-stage-frame {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 58%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 320px;
+
+    height: 250px;
+
+    border: 2px solid rgba(255,255,255,.25);
+
+    border-radius: 8px;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
 .house-stage::before {
 
     content: "";
